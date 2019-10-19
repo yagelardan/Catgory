@@ -1,0 +1,66 @@
+
+.btn_likecount {
+  box-shadow: 1px 1px 0 rgba(255,255,255,0.5) inset;
+  border-radius: 1000px;
+  display: inline-block;
+
+  line-height: 18px;
+  padding: 0px;
+  position: relative;
+	
+  //font-size: 1000px;
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+
+}
+
+
+/*
+ * Counter button style
+ */
+.btn-counter_likecount { margin-right: 39px; }
+.btn-counter_likecount:after,
+.btn-counter_likecount:hover:after { text-shadow: none; }
+.btn-counter_likecount:after {
+  border-radius: 1000px;
+  border: 1px solid #d3d3d3;
+  background-color: #fff;
+  padding: 2px 8px;
+  color: #777;
+  
+  content: attr(data-count);
+ 
+
+  
+}
+
+/*
+ * Custom styles
+ */
+.btn_likecount {
+  //background-color: #dbdbdb;
+  //border-color: #bbb;
+  border-color: #fff;
+  color: #666;
+}
+
+@media screen and (min-width: 736px) {
+.btn_likecount:hover,
+.btn_likecount.active {
+  text-shadow: 0 1px 0 #b12f27;
+ font-size: 300%;
+ color: #2ebaae;
+
+}
+}
+
+/* red 
+.btn_likecount:active { box-shadow: 0 0 5px 3px rgba(0,0,0,0.2) inset; }
+.btn_likecount span { color: #f64136; }
+.btn_likecount:hover, .btn:hover span,
+.btn_likecount.active, .btn.active span { color: #eeeeee; }
+.btn_likecount:active span {
+  color: #b12f27;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+}
+*/

@@ -1,0 +1,113 @@
+@import url(http://weloveiconfonts.com/api/?family=iconicstroke);
+@import url(http://weloveiconfonts.com/api/?family=zocial);
+
+[class*="iconicstroke-"]:before {
+  font-family: 'IconicStroke', sans-serif;
+  font-size: 1.75em;
+}
+
+[class*="zocial-"]:before {
+  font-family: 'zocial', sans-serif;
+}
+
+body {
+  background: #eaeaea;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.wrapper {
+  text-align: center;
+  width: auto;
+}
+
+header {
+  background: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  height: 35px;
+  padding: 1em 2em 0 2em;
+  width: auto;
+}
+header h1 {
+  color: #55acee;
+  display: inline-block;
+  font-size: 21px;
+}
+header ul {
+  list-style: none;
+}
+header li {
+  display: inline;
+  overflow: hidden;
+  text-align: center;
+  width: 100px;
+}
+header a {
+  color: #66757f;
+  text-decoration: none;
+}
+header a:hover {
+  color: #fb8805;
+}
+
+nav[role="navigation"] {
+  background: transparent;
+  float: left;
+}
+nav[role="navigation"] ul {
+  float: left;
+}
+nav[role="navigation"] li a {
+  border-bottom: 4px solid transparent;
+  padding: 0 15px 9px 15px;
+  -moz-transition: color 0.15s ease-in-out 0s;
+  -o-transition: color 0.15s ease-in-out 0s;
+  -webkit-transition: color 0.15s ease-in-out;
+  -webkit-transition-delay: 0s;
+  transition: color 0.15s ease-in-out 0s;
+}
+nav[role="navigation"] li a:hover {
+  border-bottom: 4px solid #fb8805;
+  padding: 0 15px 7px 15px;
+  -moz-transition: padding 0.15s ease-in-out 0s;
+  -o-transition: padding 0.15s ease-in-out 0s;
+  -webkit-transition: padding 0.15s ease-in-out;
+  -webkit-transition-delay: 0s;
+  transition: padding 0.15s ease-in-out 0s;
+}
+
+.utilities {
+  display: inline-block;
+  float: right;
+}
+.utilities li {
+  margin-right: 1em;
+}
+.utilities form {
+  bottom: 8px;
+  display: inline-block;
+  position: relative;
+}
+.utilities form input {
+  background: #66757f;
+  border: none;
+  height: 30px;
+  padding: 0 1em;
+  width: 180px;
+  -moz-border-radius: 21px;
+  -webkit-border-radius: 21px;
+  border-radius: 21px;
+}
+
+.active {
+  border-bottom: 4px solid #fb8805;
+  padding: 0 0 7px 0;
+}
+.active:hover {
+  border: none;
+  padding: 0 0 7px 0;
+  -moz-transition: padding 0s ease-in-out 0s;
+  -o-transition: padding 0s ease-in-out 0s;
+  -webkit-transition: padding 0s ease-in-out;
+  -webkit-transition-delay: 0s;
+  transition: padding 0s ease-in-out 0s;
+}

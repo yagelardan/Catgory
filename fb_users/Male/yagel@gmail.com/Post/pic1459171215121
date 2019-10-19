@@ -1,0 +1,65 @@
+/*************************************************
+**
+**
+**
+**
+**
+**************************************************/
+#include <stdio.h>
+#include "funcs1.h"
+#include "funcs2.h"
+
+
+int getnumber();
+
+int main()
+{
+    while(getnumbr()!=0){}
+    return 0;
+}
+int getnumbr(){
+	int check_valid,loop_count,option;
+	char digits_input;
+    check_valid=1;//check if the input is valid (without any wrong input chars)
+    loop_count=0;
+    printf("Choose an option\n");
+    scanf("%c",&digits_input);
+    if(digits_input==10){
+            check_valid=0;
+    }
+    option=digits_input-'0';
+        while(digits_input!=10){//10- is ascii value of enter
+            if(digits_input<='0' || digits_input>='5'){
+                check_valid=0;
+            }
+            if(loop_count>0){//entered more than one digit
+                check_valid=0;
+            }
+            scanf("%c",&digits_input);
+            if(digits_input!=10){
+                option*=10;
+                option+=digits_input;
+            }
+            loop_count++;
+        }
+        switch(option){
+            case 1:
+                    option1_to_base_ten();
+                break;
+            case 2:
+                    option2_from_base_10_to_base_N();
+                break;
+            case 3:
+                    option3_decimal_number();
+                break;
+            case 4:
+                    option4_bye();
+                    return 0;
+                break;
+            default:
+                printf("Input error\n");
+                break;
+        }
+        return 1;
+}
+

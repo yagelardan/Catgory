@@ -1,0 +1,506 @@
+AWSTATS DATA FILE 6.9 (build 1.925)
+# If you remove this file, all statistics for date 201611 will be lost/reset.
+
+# Position (offset in bytes) in this file of beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 1864                
+POS_TIME 2550                
+POS_VISITOR 8970                
+POS_DAY 12738               
+POS_DOMAIN 3377                
+POS_LOGIN 3610                
+POS_ROBOT 3765                
+POS_WORMS 4230                
+POS_EMAILSENDER 4361                
+POS_EMAILRECEIVER 4504                
+POS_SESSION 13533               
+POS_SIDER 13722               
+POS_FILETYPES 4639                
+POS_OS 4919                
+POS_BROWSER 5043                
+POS_SCREENSIZE 5341                
+POS_UNKNOWNREFERER 5415                
+POS_UNKNOWNREFERERBROWSER 5817                
+POS_ORIGIN 6165                
+POS_SEREFERRALS 6308                
+POS_PAGEREFS 6466                
+POS_SEARCHWORDS 6703                
+POS_KEYWORDS 6855                
+POS_MISC 2214                
+POS_ERRORS 6914                
+POS_CLUSTER 3466                
+POS_SIDER_404 7049                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20161201003748 3074 1827016 45203977761
+FirstTime 20161101010415
+LastTime 20161130214308
+LastUpdate 20161201021318 3074 2970 103 0 0
+TotalVisits 131                 
+TotalUnique 85                  
+MonthHostsKnown 0                   
+MonthHostsUnknown 96                  
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 0 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 17 33 1020728 17 20 238695
+1 5 17 455398 19 24 428131
+2 9 10 203551 15 16 459784
+3 1 1 22619 11 13 275537
+4 11 26 1380608 13 16 230511
+5 8 24 1099976 15 23 369812
+6 19 36 1767843 6 6 115104
+7 6 15 334464 25 30 280414
+8 121 121 2950353 29 53 692310
+9 259 294 8808900 23 31 288156
+10 124 125 3117358 3 3 319
+11 20 37 3577195 26 29 341064
+12 1 1 22619 15 19 311825
+13 47 47 1029668 10 10 26613
+14 140 230 16217544 10 16 29882
+15 227 227 5558950 20 34 375676
+16 164 218 8036129 19 27 332549
+17 46 46 1052699 12 13 88808
+18 16 16 355596 27 27 53451
+19 0 11 129052 12 14 256721
+20 12 52 679116 86 102 1005218
+21 27 226 2944107 299 374 5349913
+22 17 34 541912 56 65 593848
+23 244 244 5924071 17 17 107528
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+ip 1541 2091 67230456
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 9
+spider 261 6377767 20161130214315 0
+googlebot 112 3172136 20161130165823 0
+bot[+:,\.\;\/\\-] 42 768824 20161127115821 0
+seznambot 15 1040819 20161129211729 0
+baiduspider 9 263660 20161129122128 0
+surveybot 2 45238 20161118085614 0
+robot 2 62550 20161112111627 0
+python 1 22619 20161120002515 0
+no_user_agent 1 22619 20161113200113 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 12
+css 186 3639757 0 0
+png 14 10892 0 0
+ttf 2 276408 0 0
+ico 14 1295814 0 0
+woff 10 812840 0 0
+woff2 14 773568 0 0
+php 1361 32820427 0 0
+html 4 11740 0 0
+js 294 3374850 0 0
+jpg 42 7604366 0 0
+scss 4 14072 0 0
+Unknown 146 16595722 0 0
+END_FILETYPES
+
+# OS ID - Hits
+BEGIN_OS 8
+macosx 1
+winxp 1169
+winlong 28
+winnt 13
+Unknown 54
+winvista 65
+linux 110
+win2008 651
+END_OS
+
+# Browser ID - Hits
+BEGIN_BROWSER 19
+msie6.0 1
+firefox28.0 5
+firefox48.0 1
+chrome 504
+opera 6
+firefox4.0 2
+firefox3.5.2 1109
+firefox34.0 3
+firefox46.0 1
+firefox2.0.0.11 1
+mozilla 64
+firefox14.0.1 9
+msie7.0 11
+firefox3.6.3 3
+msie9.0 276
+Unknown 26
+safari 46
+firefox3.0.8 1
+netscape 22
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 7
+MAUI_WAP_Browser 20161112091308
+Mozilla 20161124135534
+SalesIntelligent_(_https://www.salesintelligent.com) 20161114111039
+BlackBerry9000/4.6.0.167_Profile/MIDP-2.0_Configuration/CLDC-1.1_VendorID/102_ips-agent 20161118220719
+WWW-Mechanize/1.73 20161129050331
+panscient.com 20161111182617
+Opera/9.27 20161103230723
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 5
+MAUI_WAP_Browser 20161112091308
+SalesIntelligent_(_https://www.salesintelligent.com) 20161114111039
+BlackBerry9000/4.6.0.167_Profile/MIDP-2.0_Configuration/CLDC-1.1_VendorID/102_ips-agent 20161118220719
+WWW-Mechanize/1.73 20161129050331
+panscient.com 20161111182617
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 142 201
+From1 0 0
+From2 31 277
+From3 8 8
+From4 1360 1605
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 1
+google 31 277
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 3
+http://pizza-tycoon.com 4 4
+http://burger-imperia.com 3 3
+http://www.bing.com/search 1 1
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 5
+403 1 230
+302 163 190890
+406 1 261
+301 2 466
+404 370 283790
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 53
+/lovebtn/js/index.js 1 -
+/products/gift-card 1 http://CATGORY.COM/products/gift-card
+/robots.txt 89 -
+/home_js/home.js 1 -
+/fetchsub.php 1 -
+/admin.php 3 -
+/login/assets/js/href 32 -
+/.git/HEAD 1 -
+/assets/js/jquery.min.js 1 -
+/web/wp-login.php 4 -
+/fetch.php 2 -
+/test/wp-login.php 6 -
+/fetchlikes.php 4 -
+/fb_font/font.css 1 -
+/wordpress/wp-login.php 6 -
+/wp-admin/ 3 http://catgory.com/wp-login.php
+/blog/ 3 http://catgory.com/blog/
+/popupjs/index.js 1 -
+/blogs/wp-login.php 5 -
+/assets/js/util.js 1 -
+/new/wp-login.php 4 -
+/m/ 1 -
+/background_file/background_js/submited_searched_reco_event.js 1 -
+/~daycare/assets/elfinder/elfinder.html 1 -
+/en/wp-login.php 6 -
+/assets/js/ie/respond.min.js 1 -
+/license.php 1 -
+/wp/wp-login.php 7 -
+/popupcss/style.css 1 -
+/background_file/background_js/event.js 1 -
+/th1s_1s_a_4o4.html 30 http://www.google.com/url
+/giftcertificates.php 1 http://CATGORY.COM/giftcertificates.php
+/administrator/index.php 4 http://catgory.com/administrator/
+/cms/wp-login.php 3 -
+/background_file/background_js/searching.js 1 -
+/common/js/elfinder_2.0/elfinder.html 1 -
+/assets/js/skel.min.js 1 -
+/modules/tadtools/ckeditor/elFinder/elfinder.html 1 -
+/packages/ahmadazimi/laravel-media-manager/elfinder.html 1 -
+/_core/utils/elfinder/elfinder.html 1 -
+/fb_view_profile/view_profile.php 65 -
+/administrator/ 6 -
+/blog/wp-login.php 5 -
+/main/wp-login.php 1 -
+/headerejs/index.js 1 -
+/home/wp-login.php 1 -
+/a 30 -
+/background_file/background_js/searched_reco_event.js 1 -
+/assets/js/main.js 1 -
+/news/wp-login.php 4 -
+/wp-login.php 16 -
+/assets/js/ie/html5shiv.js 1 -
+/site/wp-login.php 4 -
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 96
+41.102.53.22 225 225 5513083 20161120230524
+95.168.240.44 225 225 5513083 20161109155614
+78.243.152.11 121 121 2950353 20161122081139
+82.81.104.240 121 246 17333479 20161121111057
+209.91.141.93 120 120 2928517 20161119092911
+193.165.151.182 120 120 2928517 20161104160409
+94.182.181.53 120 120 2928517 20161108095745
+46.4.89.243 120 120 2928517 20161102103025
+212.179.21.194 61 99 8771469 20161130145727
+41.83.214.65 45 45 1028193 20161112175132
+69.175.22.218 5 38 664428 20161129214301
+65.55.213.25 0 1 863 
+116.12.251.132 3 3 65920 20161102105414
+66.102.9.156 1 1 22619 20161110105618
+35.164.197.1 1 1 22619 20161129050331
+119.30.39.242 1 5 566566 20161112091250
+195.154.146.225 3 3 67857 20161124102228
+144.217.80.25 7 7 163388 20161119064047
+35.163.194.144 1 1 22619 20161127051436
+54.161.70.134 1 1 22619 20161124075544
+202.46.52.150 1 1 22619 20161114024757
+131.253.25.147 0 3 367233 
+50.62.160.32 1 1 21985 20161107101302
+69.58.178.58 11 11 241777 20161118220736
+131.253.27.6 0 2 69639 
+184.154.139.23 13 124 1523495 20161130214308
+66.102.9.24 1 1 22619 20161102071603
+54.224.71.81 1 1 22619 20161111224156
+62.212.73.49 1 1 22619 20161128200358
+71.127.222.91 14 14 310358 20161111182617
+139.162.180.60 9 26 1537252 20161119063854
+95.213.184.35 1 1 22619 20161104153615
+85.25.103.119 1 1 22619 20161111004615
+46.229.170.197 2 2 45238 20161123132944
+202.46.58.18 1 1 22619 20161122171322
+202.46.49.139 1 1 22619 20161101010415
+206.213.183.110 2 2 43955 20161119063511
+66.249.93.60 1 1 22619 20161105114425
+202.46.53.52 1 1 22619 20161118205819
+194.135.215.138 1 1 2935 20161107204130
+178.84.254.90 1 1 134433 20161125113641
+202.46.51.183 1 1 22619 20161117213126
+202.46.52.105 1 1 22619 20161122070210
+64.74.215.140 30 46 1427343 20161120144517
+149.202.127.215 2 2 45238 20161126031111
+66.249.93.58 0 1 99678 
+54.225.23.194 1 1 22619 20161101182246
+93.115.95.216 1 1 22619 20161109004611
+54.161.5.167 1 1 22619 20161115215636
+202.46.51.30 1 1 22619 20161110132800
+131.253.27.166 0 2 70394 
+131.253.25.229 1 2 26902 20161115095104
+188.235.141.171 1 1 2935 20161107202505
+70.42.131.170 0 14 132454 
+94.26.140.150 1 1 22619 20161106143127
+62.210.129.246 1 1 22619 20161122061811
+89.234.157.254 1 1 22619 20161106061505
+54.210.110.152 1 1 22619 20161114111039
+191.214.28.90 1 1 22124 20161105235304
+134.249.159.113 1 22 226269 20161118091848
+176.31.149.121 1 1 22619 20161109174117
+90.79.70.8 1 13 310622 20161121165137
+131.253.27.87 1 2 139450 20161115095104
+91.210.147.255 4 4 90476 20161123090619
+202.46.54.130 1 1 22619 20161114172325
+69.175.67.58 3 30 395909 20161126205659
+66.102.9.158 0 1 99678 
+35.163.230.31 1 1 22619 20161115111216
+46.19.86.254 13 29 930881 20161116005218
+78.129.156.149 1 1 21990 20161120003706
+167.114.228.206 1 1 22619 20161115150546
+131.253.27.179 0 3 124515 
+52.207.255.201 1 1 22619 20161111090150
+131.253.25.207 0 1 45 
+91.210.147.63 4 4 90476 20161108164817
+212.131.189.111 1 1 2935 20161117231308
+89.190.42.7 1 1 22619 20161119225026
+45.32.129.1 1 1 22619 20161104220325
+64.74.215.1 2 10 144939 20161119070440
+46.19.86.38 8 9 180932 20161111025945
+104.156.230.231 1 1 22619 20161113200033
+131.253.25.196 0 2 98337 
+64.79.100.30 44 44 962440 20161124135534
+94.23.169.94 2 2 45238 20161119120603
+202.46.52.205 1 1 22619 20161125184746
+67.212.162.101 3 26 382545 20161125205237
+66.102.9.21 0 1 99678 
+66.249.93.159 1 2 122297 20161103113639
+178.217.187.39 2 2 45238 20161118090845
+62.149.236.59 17 17 385300 20161103230727
+54.198.116.156 4 16 432779 20161128010716
+46.166.148.142 1 1 22619 20161108052834
+176.31.7.241 1 1 22619 20161107223952
+218.44.32.157 1 1 2935 20161107205251
+202.46.53.58 1 1 22619 20161101232144
+184.154.36.163 6 58 602150 20161124211651
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 30
+20161101 4 13 256819 4
+20161102 125 135 3218829 6
+20161103 19 27 692330 3
+20161104 127 152 4088736 6
+20161105 4 14 269135 4
+20161106 3 12 150090 3
+20161107 7 14 107729 7
+20161108 126 129 3127871 4
+20161109 228 236 5663128 5
+20161110 4 14 262831 4
+20161111 74 121 6836861 8
+20161112 48 61 1719473 4
+20161113 2 9 115579 2
+20161114 21 44 3394456 5
+20161115 7 32 1092706 7
+20161116 14 39 1119843 2
+20161117 4 13 150268 4
+20161118 16 25 426920 6
+20161119 160 222 7519684 11
+20161120 276 314 8339007 6
+20161121 17 67 3700858 3
+20161122 125 128 3200470 5
+20161123 6 35 444403 3
+20161124 47 56 1109773 4
+20161125 3 11 250057 3
+20161126 2 11 124714 2
+20161127 31 56 4411888 3
+20161128 6 27 560250 3
+20161129 2 11 211581 2
+20161130 33 63 4664167 2
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 5
+5mn-15mn 1
+30s-2mn 8
+2mn-5mn 2
+0s-30s 118
+30mn-1h 2
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 41
+/login/sub.php 1178 28521348 22 23
+/login/Home.php 124 2805529 91 81
+/login/fetch.php 23 721304 1 2
+/fb_users/Male/Ibjbjb/Post/pic1468178966250 13 1364132 0 3
+/fb_files/fb_home/assets/fonts/fontawesome-webfont.woff2 12 644640 0 0
+/fb_users/Male/catgory/Post/pic1469257297120 10 235746 0 0
+/fb_files/fb_home/fetch.php 10 336272 0 1
+/fb_users/Male/catgory/Post/pic1469257349802 10 156384 0 0
+/fb_users/Male/catgory/Post/pic1469562665835 10 187146 0 1
+/fb_users/Male/catgory/Post/pic1469257540342 9 612600 0 0
+/fb_users/Male/catgory/Post/pic1469257438549 9 770408 0 0
+/fb_files/fb_home/Home.php 8 178704 6 0
+/fb_files/fb_home/assets/fonts/fontawesome-webfont.ttf 2 276408 1 1
+/fb_files/fb_home/follow.php 1 14951 0 1
+/fb_users/Male/catgory/Post/pic1469270643484 3 213279 0 0
+/fb_users/Male/catgory/Post/pic1469207490843 5 1256160 0 0
+/fb_users/Male/catgory/Post/pic1469272411875 3 29526 0 0
+/fb_users/Male/Ibjbjb/Post/pic1468178479584 6 170836 0 1
+/fb_users/Male/catgory/Post/pic1469207630887 5 1313250 0 0
+/fb_users/Male/catgory/Post/pic1469207712477 5 1397440 0 2
+/fb_users/Male/yagel@gmail.com/Post/pic1460644752303 1 134433 1 1
+/login/assets/fonts/fontawesome-webfont.woff2 2 128928 0 1
+/login/commentbox/scss/style.scss 4 14072 0 0
+/fb_users/Male/catgory/Post/pic1469276842979 5 947215 0 0
+/fb_users/Male/catgory/Post/pic1469272354443 3 190335 0 0
+/fb_users/Male/Ibjbjb/Post/pic1468172760118 6 369388 0 0
+/fb_users/Male/Ibjbjb/Post/pic1468178437545 6 316624 0 0
+/fb_users/Male/catgory/Post/pic1469274753332 3 63252 0 0
+/login/assets/fonts/fontawesome-webfont.woff 2 162568 0 0
+/fb_users/Male/catgory/Post/pic1469272119425 3 543606 0 0
+/fb_users/Male/catgory/Post/pic1469272198492 3 466464 0 0
+/fb_users/Male/catgory/Post/pic1469207935655 5 1605970 0 0
+/fb_users/Male/catgory/Post/pic1469257594153 5 2422020 0 0
+/login/fetchsub.php 8 59959 0 2
+/fb_users/Male/asdasd@asdas.com/Post/pic1461269901050 7 651205 0 1
+/fb_users/Male/Ibjbjb/Post/pic1468178889027 6 354968 0 0
+//login/Home.php 5 113095 5 5
+/fb_users/Male/catgory/Post/pic1469716108908 5 823335 0 1
+/fb_files/fb_home/assets/fonts/fontawesome-webfont.woff 8 650272 0 0
+/login/postpage.php 4 69265 0 0
+/admin/ 4 11740 4 4
+END_SIDER

@@ -1,0 +1,1770 @@
+﻿-- phpMyAdmin SQL Dump
+-- version 2.8.0.1
+-- http://www.phpmyadmin.net
+-- 
+-- Host: custsql-ipg14.eigbox.net
+-- Generation Time: Dec 07, 2017 at 05:47 AM
+-- Server version: 5.6.37
+-- PHP Version: 4.4.9
+-- 
+-- Database: `catgodb`
+-- 
+CREATE DATABASE `catgodb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `catgodb`;
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `admin_info`
+-- 
+
+CREATE TABLE `admin_info` (
+  `Username` varchar(200) NOT NULL,
+  `Password` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- 
+-- Dumping data for table `admin_info`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `categories`
+-- 
+
+CREATE TABLE `categories` (
+  `cat_id` int(10) NOT NULL AUTO_INCREMENT,
+  `cat_name` varchar(30) NOT NULL,
+  `cat_color` varchar(10) NOT NULL DEFAULT '85144b',
+  PRIMARY KEY (`cat_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
+
+-- 
+-- Dumping data for table `categories`
+-- 
+
+INSERT INTO `categories` VALUES (1, 'funny', '512DA8');
+INSERT INTO `categories` VALUES (2, 'tech', 'cddc39');
+INSERT INTO `categories` VALUES (3, 'buzz', '8BC34A');
+INSERT INTO `categories` VALUES (4, 'finance', 'AFB42B');
+INSERT INTO `categories` VALUES (5, 'sport', '2196F3');
+INSERT INTO `categories` VALUES (6, 'cute', '3D9970');
+INSERT INTO `categories` VALUES (7, 'science', 'fdab30');
+INSERT INTO `categories` VALUES (8, 'gaming', '7e3624');
+INSERT INTO `categories` VALUES (9, 'books', '6c6d4c');
+INSERT INTO `categories` VALUES (10, 'art', 'A8CD1B');
+INSERT INTO `categories` VALUES (11, 'fashion', '74AFAD');
+INSERT INTO `categories` VALUES (12, 'apps', '001f3f');
+INSERT INTO `categories` VALUES (13, 'food', '7D1935');
+INSERT INTO `categories` VALUES (14, 'comic', '004400');
+INSERT INTO `categories` VALUES (15, 'travel', 'C1E1A6');
+INSERT INTO `categories` VALUES (16, 'geeky', '444444');
+INSERT INTO `categories` VALUES (17, 'music', 'ee7097');
+INSERT INTO `categories` VALUES (18, 'design', 'b489a6');
+INSERT INTO `categories` VALUES (19, 'random', '333330');
+INSERT INTO `categories` VALUES (20, 'television', 'E9967A');
+INSERT INTO `categories` VALUES (21, 'health', 'F65362');
+INSERT INTO `categories` VALUES (22, 'nature', '909c15');
+INSERT INTO `categories` VALUES (23, 'podcasts', 'a063b6');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `countries`
+-- 
+
+CREATE TABLE `countries` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `country_id` varchar(20) NOT NULL,
+  `country_name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+
+-- 
+-- Dumping data for table `countries`
+-- 
+
+INSERT INTO `countries` VALUES (2, 'il', 'Israel');
+INSERT INTO `countries` VALUES (3, 'in', 'India');
+INSERT INTO `countries` VALUES (4, 'fr', 'France');
+INSERT INTO `countries` VALUES (5, 'ca', 'canada');
+INSERT INTO `countries` VALUES (6, 'uk', 'United Kingdom');
+INSERT INTO `countries` VALUES (7, 'au', 'Australia');
+INSERT INTO `countries` VALUES (8, 'de', 'Denmark');
+INSERT INTO `countries` VALUES (9, 'no', 'Norway');
+INSERT INTO `countries` VALUES (10, 'sw', 'Sweden');
+INSERT INTO `countries` VALUES (11, 'ch', 'china');
+INSERT INTO `countries` VALUES (12, 'ne', 'Netherlands');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `feedback`
+-- 
+
+CREATE TABLE `feedback` (
+  `feedback_id` int(7) NOT NULL AUTO_INCREMENT,
+  `user_id` int(7) NOT NULL,
+  `feedback_txt` varchar(120) NOT NULL,
+  `star` varchar(1) NOT NULL,
+  `Date` varchar(30) NOT NULL,
+  PRIMARY KEY (`feedback_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- 
+-- Dumping data for table `feedback`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `group_chat`
+-- 
+
+CREATE TABLE `group_chat` (
+  `chat_id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_id` int(7) NOT NULL,
+  `chat_txt` text NOT NULL,
+  `time` varchar(30) NOT NULL,
+  PRIMARY KEY (`chat_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+-- 
+-- Dumping data for table `group_chat`
+-- 
+
+INSERT INTO `group_chat` VALUES (1, 8, 'Hello Friends How are you ? ', '30-9-2013 11:35');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `user_cover_pic`
+-- 
+
+CREATE TABLE `user_cover_pic` (
+  `cover_id` int(7) NOT NULL AUTO_INCREMENT,
+  `user_id` int(7) NOT NULL,
+  `image` varchar(150) NOT NULL,
+  PRIMARY KEY (`cover_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+-- 
+-- Dumping data for table `user_cover_pic`
+-- 
+
+INSERT INTO `user_cover_pic` VALUES (7, 8, '999584_496501817111249_1587007043_n.jpg');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `user_info`
+-- 
+
+CREATE TABLE `user_info` (
+  `user_id` int(7) NOT NULL,
+  `job` varchar(100) NOT NULL,
+  `school_or_collage` varchar(100) NOT NULL,
+  `current_city` varchar(100) NOT NULL,
+  `hometown` varchar(100) NOT NULL,
+  `relationship_status` varchar(30) NOT NULL,
+  `mobile_no` varchar(15) NOT NULL,
+  `mobile_no_priority` varchar(10) NOT NULL,
+  `website` varchar(100) NOT NULL,
+  `Facebook_ID` varchar(100) NOT NULL,
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- 
+-- Dumping data for table `user_info`
+-- 
+
+INSERT INTO `user_info` VALUES (8, '', 'vccm', 'Rajkot', 'Rajkot', 'Single', '7600898210', 'Public', 'www.wix.com/amitad1i4/amit', 'www.facebook.com/Amit.000002');
+INSERT INTO `user_info` VALUES (25, '', '', '', '', '', '', '', '', '');
+INSERT INTO `user_info` VALUES (26, '', '', '', '', '', '', '', '', '');
+INSERT INTO `user_info` VALUES (27, '', '', '', '', '', '', '', '', '');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `user_likes`
+-- 
+
+CREATE TABLE `user_likes` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(15) NOT NULL,
+  `post_id` varchar(15) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=426 DEFAULT CHARSET=latin1 AUTO_INCREMENT=426 ;
+
+-- 
+-- Dumping data for table `user_likes`
+-- 
+
+INSERT INTO `user_likes` VALUES (27, '41', '142');
+INSERT INTO `user_likes` VALUES (28, '41', '143');
+INSERT INTO `user_likes` VALUES (29, '41', '144');
+INSERT INTO `user_likes` VALUES (30, '41', '145');
+INSERT INTO `user_likes` VALUES (31, '25', '133');
+INSERT INTO `user_likes` VALUES (32, '42', '145');
+INSERT INTO `user_likes` VALUES (33, '42', '94');
+INSERT INTO `user_likes` VALUES (34, '42', '85');
+INSERT INTO `user_likes` VALUES (35, '43', '102');
+INSERT INTO `user_likes` VALUES (36, '42', '143');
+INSERT INTO `user_likes` VALUES (37, '25', '146');
+INSERT INTO `user_likes` VALUES (38, '25', '147');
+INSERT INTO `user_likes` VALUES (39, '25', '148');
+INSERT INTO `user_likes` VALUES (40, '25', '149');
+INSERT INTO `user_likes` VALUES (41, '25', '98');
+INSERT INTO `user_likes` VALUES (42, '25', '142');
+INSERT INTO `user_likes` VALUES (43, '25', '85');
+INSERT INTO `user_likes` VALUES (44, '25', '150');
+INSERT INTO `user_likes` VALUES (45, '25', '151');
+INSERT INTO `user_likes` VALUES (46, '25', '152');
+INSERT INTO `user_likes` VALUES (47, '25', '153');
+INSERT INTO `user_likes` VALUES (48, '25', '154');
+INSERT INTO `user_likes` VALUES (49, '25', '155');
+INSERT INTO `user_likes` VALUES (50, '25', '156');
+INSERT INTO `user_likes` VALUES (51, '25', '99');
+INSERT INTO `user_likes` VALUES (52, '', '98');
+INSERT INTO `user_likes` VALUES (53, '100', '98');
+INSERT INTO `user_likes` VALUES (54, '25', '116');
+INSERT INTO `user_likes` VALUES (55, '25', '97');
+INSERT INTO `user_likes` VALUES (56, '25', '91');
+INSERT INTO `user_likes` VALUES (57, '25', '80');
+INSERT INTO `user_likes` VALUES (58, '25', '157');
+INSERT INTO `user_likes` VALUES (59, '25', '158');
+INSERT INTO `user_likes` VALUES (60, '46', '158');
+INSERT INTO `user_likes` VALUES (61, '25', '159');
+INSERT INTO `user_likes` VALUES (62, '25', '160');
+INSERT INTO `user_likes` VALUES (63, '25', '161');
+INSERT INTO `user_likes` VALUES (64, '46', '160');
+INSERT INTO `user_likes` VALUES (65, '46', '161');
+INSERT INTO `user_likes` VALUES (66, '25', '162');
+INSERT INTO `user_likes` VALUES (67, '25', '163');
+INSERT INTO `user_likes` VALUES (68, '25', '164');
+INSERT INTO `user_likes` VALUES (69, '46', '165');
+INSERT INTO `user_likes` VALUES (70, '46', '166');
+INSERT INTO `user_likes` VALUES (71, '46', '167');
+INSERT INTO `user_likes` VALUES (72, '46', '168');
+INSERT INTO `user_likes` VALUES (73, '25', '125');
+INSERT INTO `user_likes` VALUES (74, '25', '83');
+INSERT INTO `user_likes` VALUES (75, '25', '105');
+INSERT INTO `user_likes` VALUES (76, '25', '168');
+INSERT INTO `user_likes` VALUES (77, '25', '169');
+INSERT INTO `user_likes` VALUES (78, '25', '170');
+INSERT INTO `user_likes` VALUES (79, '25', '171');
+INSERT INTO `user_likes` VALUES (80, '25', '172');
+INSERT INTO `user_likes` VALUES (81, '25', '173');
+INSERT INTO `user_likes` VALUES (82, '47', '174');
+INSERT INTO `user_likes` VALUES (83, '25', '175');
+INSERT INTO `user_likes` VALUES (84, '25', '176');
+INSERT INTO `user_likes` VALUES (85, '25', '103');
+INSERT INTO `user_likes` VALUES (86, '25', '126');
+INSERT INTO `user_likes` VALUES (87, '25', '90');
+INSERT INTO `user_likes` VALUES (88, '25', '107');
+INSERT INTO `user_likes` VALUES (89, '25', '177');
+INSERT INTO `user_likes` VALUES (90, '25', '145');
+INSERT INTO `user_likes` VALUES (91, '', '145');
+INSERT INTO `user_likes` VALUES (92, '', '142');
+INSERT INTO `user_likes` VALUES (93, '', '168');
+INSERT INTO `user_likes` VALUES (94, '', '99');
+INSERT INTO `user_likes` VALUES (95, '', '107');
+INSERT INTO `user_likes` VALUES (96, '', '158');
+INSERT INTO `user_likes` VALUES (97, '', '160');
+INSERT INTO `user_likes` VALUES (98, '', '161');
+INSERT INTO `user_likes` VALUES (99, '', '135');
+INSERT INTO `user_likes` VALUES (100, '', '136');
+INSERT INTO `user_likes` VALUES (101, '', '105');
+INSERT INTO `user_likes` VALUES (102, '', '173');
+INSERT INTO `user_likes` VALUES (103, '', '172');
+INSERT INTO `user_likes` VALUES (104, '', '103');
+INSERT INTO `user_likes` VALUES (105, '', '104');
+INSERT INTO `user_likes` VALUES (106, '', '127');
+INSERT INTO `user_likes` VALUES (107, '', '123');
+INSERT INTO `user_likes` VALUES (108, '', '169');
+INSERT INTO `user_likes` VALUES (109, '', '94');
+INSERT INTO `user_likes` VALUES (110, '', '94');
+INSERT INTO `user_likes` VALUES (111, '', '94');
+INSERT INTO `user_likes` VALUES (112, '', '165');
+INSERT INTO `user_likes` VALUES (113, '', '133');
+INSERT INTO `user_likes` VALUES (114, '25', '178');
+INSERT INTO `user_likes` VALUES (115, '25', '179');
+INSERT INTO `user_likes` VALUES (116, '', '179');
+INSERT INTO `user_likes` VALUES (117, '25', '180');
+INSERT INTO `user_likes` VALUES (118, '25', '181');
+INSERT INTO `user_likes` VALUES (119, '', '126');
+INSERT INTO `user_likes` VALUES (120, '', '102');
+INSERT INTO `user_likes` VALUES (121, '', '97');
+INSERT INTO `user_likes` VALUES (122, '', '116');
+INSERT INTO `user_likes` VALUES (123, '', '163');
+INSERT INTO `user_likes` VALUES (124, '', '178');
+INSERT INTO `user_likes` VALUES (125, '25', '182');
+INSERT INTO `user_likes` VALUES (126, '25', '183');
+INSERT INTO `user_likes` VALUES (127, '25', '184');
+INSERT INTO `user_likes` VALUES (128, '25', '185');
+INSERT INTO `user_likes` VALUES (129, '53', '186');
+INSERT INTO `user_likes` VALUES (130, '53', '187');
+INSERT INTO `user_likes` VALUES (131, '', '174');
+INSERT INTO `user_likes` VALUES (132, '54', '188');
+INSERT INTO `user_likes` VALUES (133, '55', '189');
+INSERT INTO `user_likes` VALUES (134, '25', '190');
+INSERT INTO `user_likes` VALUES (135, '', '124');
+INSERT INTO `user_likes` VALUES (136, '56', '191');
+INSERT INTO `user_likes` VALUES (137, '56', '192');
+INSERT INTO `user_likes` VALUES (138, '56', '193');
+INSERT INTO `user_likes` VALUES (139, '25', '194');
+INSERT INTO `user_likes` VALUES (140, '25', '195');
+INSERT INTO `user_likes` VALUES (141, '53', '196');
+INSERT INTO `user_likes` VALUES (142, '53', '197');
+INSERT INTO `user_likes` VALUES (143, '25', '198');
+INSERT INTO `user_likes` VALUES (144, '53', '199');
+INSERT INTO `user_likes` VALUES (145, '53', '200');
+INSERT INTO `user_likes` VALUES (146, '53', '201');
+INSERT INTO `user_likes` VALUES (147, '53', '202');
+INSERT INTO `user_likes` VALUES (148, '25', '203');
+INSERT INTO `user_likes` VALUES (149, '25', '204');
+INSERT INTO `user_likes` VALUES (150, '53', '205');
+INSERT INTO `user_likes` VALUES (151, '57', '206');
+INSERT INTO `user_likes` VALUES (152, '57', '207');
+INSERT INTO `user_likes` VALUES (153, '25', '208');
+INSERT INTO `user_likes` VALUES (154, '53', '209');
+INSERT INTO `user_likes` VALUES (155, '60', '210');
+INSERT INTO `user_likes` VALUES (156, '', '210');
+INSERT INTO `user_likes` VALUES (157, '', '91');
+INSERT INTO `user_likes` VALUES (158, '60', '211');
+INSERT INTO `user_likes` VALUES (159, '60', '212');
+INSERT INTO `user_likes` VALUES (160, '61', '213');
+INSERT INTO `user_likes` VALUES (161, '62', '214');
+INSERT INTO `user_likes` VALUES (162, '62', '215');
+INSERT INTO `user_likes` VALUES (163, '62', '216');
+INSERT INTO `user_likes` VALUES (164, '62', '217');
+INSERT INTO `user_likes` VALUES (165, '', '217');
+INSERT INTO `user_likes` VALUES (166, '62', '218');
+INSERT INTO `user_likes` VALUES (167, '62', '219');
+INSERT INTO `user_likes` VALUES (168, '', '219');
+INSERT INTO `user_likes` VALUES (169, '65', '220');
+INSERT INTO `user_likes` VALUES (170, '62', '221');
+INSERT INTO `user_likes` VALUES (171, '86', '222');
+INSERT INTO `user_likes` VALUES (172, '', '213');
+INSERT INTO `user_likes` VALUES (173, '', '211');
+INSERT INTO `user_likes` VALUES (174, '', '222');
+INSERT INTO `user_likes` VALUES (175, '', '214');
+INSERT INTO `user_likes` VALUES (176, '99', '223');
+INSERT INTO `user_likes` VALUES (177, '99', '224');
+INSERT INTO `user_likes` VALUES (178, '99', '225');
+INSERT INTO `user_likes` VALUES (179, '99', '226');
+INSERT INTO `user_likes` VALUES (180, '99', '227');
+INSERT INTO `user_likes` VALUES (181, '99', '228');
+INSERT INTO `user_likes` VALUES (182, '99', '229');
+INSERT INTO `user_likes` VALUES (183, '99', '230');
+INSERT INTO `user_likes` VALUES (184, '102', '231');
+INSERT INTO `user_likes` VALUES (185, '102', '232');
+INSERT INTO `user_likes` VALUES (186, '101', '233');
+INSERT INTO `user_likes` VALUES (187, '102', '234');
+INSERT INTO `user_likes` VALUES (188, '106', '235');
+INSERT INTO `user_likes` VALUES (189, '107', '236');
+INSERT INTO `user_likes` VALUES (190, '107', '237');
+INSERT INTO `user_likes` VALUES (191, '62', '238');
+INSERT INTO `user_likes` VALUES (192, '', '236');
+INSERT INTO `user_likes` VALUES (193, '115', '239');
+INSERT INTO `user_likes` VALUES (194, '115', '240');
+INSERT INTO `user_likes` VALUES (195, '116', '241');
+INSERT INTO `user_likes` VALUES (196, '116', '242');
+INSERT INTO `user_likes` VALUES (197, '116', '243');
+INSERT INTO `user_likes` VALUES (198, '116', '244');
+INSERT INTO `user_likes` VALUES (199, '116', '245');
+INSERT INTO `user_likes` VALUES (200, '115', '246');
+INSERT INTO `user_likes` VALUES (201, '115', '247');
+INSERT INTO `user_likes` VALUES (202, '115', '248');
+INSERT INTO `user_likes` VALUES (203, '115', '249');
+INSERT INTO `user_likes` VALUES (204, '115', '250');
+INSERT INTO `user_likes` VALUES (205, '115', '251');
+INSERT INTO `user_likes` VALUES (206, '115', '252');
+INSERT INTO `user_likes` VALUES (207, '115', '253');
+INSERT INTO `user_likes` VALUES (208, '115', '254');
+INSERT INTO `user_likes` VALUES (209, '115', '255');
+INSERT INTO `user_likes` VALUES (210, '115', '256');
+INSERT INTO `user_likes` VALUES (211, '115', '257');
+INSERT INTO `user_likes` VALUES (212, '115', '258');
+INSERT INTO `user_likes` VALUES (213, '115', '259');
+INSERT INTO `user_likes` VALUES (214, '115', '260');
+INSERT INTO `user_likes` VALUES (215, '115', '261');
+INSERT INTO `user_likes` VALUES (216, '115', '262');
+INSERT INTO `user_likes` VALUES (217, '115', '263');
+INSERT INTO `user_likes` VALUES (218, '115', '264');
+INSERT INTO `user_likes` VALUES (219, '115', '265');
+INSERT INTO `user_likes` VALUES (220, '115', '266');
+INSERT INTO `user_likes` VALUES (221, '115', '267');
+INSERT INTO `user_likes` VALUES (222, '115', '268');
+INSERT INTO `user_likes` VALUES (223, '115', '269');
+INSERT INTO `user_likes` VALUES (224, '115', '270');
+INSERT INTO `user_likes` VALUES (225, '115', '271');
+INSERT INTO `user_likes` VALUES (226, '115', '272');
+INSERT INTO `user_likes` VALUES (227, '115', '273');
+INSERT INTO `user_likes` VALUES (228, '115', '274');
+INSERT INTO `user_likes` VALUES (229, '115', '275');
+INSERT INTO `user_likes` VALUES (230, '115', '276');
+INSERT INTO `user_likes` VALUES (231, '115', '277');
+INSERT INTO `user_likes` VALUES (232, '115', '278');
+INSERT INTO `user_likes` VALUES (233, '115', '279');
+INSERT INTO `user_likes` VALUES (234, '115', '280');
+INSERT INTO `user_likes` VALUES (235, '115', '281');
+INSERT INTO `user_likes` VALUES (236, '', '275');
+INSERT INTO `user_likes` VALUES (237, '115', '282');
+INSERT INTO `user_likes` VALUES (238, '115', '283');
+INSERT INTO `user_likes` VALUES (239, '115', '284');
+INSERT INTO `user_likes` VALUES (240, '', '284');
+INSERT INTO `user_likes` VALUES (241, '115', '285');
+INSERT INTO `user_likes` VALUES (242, '115', '286');
+INSERT INTO `user_likes` VALUES (243, '115', '287');
+INSERT INTO `user_likes` VALUES (244, '115', '288');
+INSERT INTO `user_likes` VALUES (245, '115', '289');
+INSERT INTO `user_likes` VALUES (246, '115', '290');
+INSERT INTO `user_likes` VALUES (247, '115', '291');
+INSERT INTO `user_likes` VALUES (248, '115', '292');
+INSERT INTO `user_likes` VALUES (249, '115', '293');
+INSERT INTO `user_likes` VALUES (250, '', '276');
+INSERT INTO `user_likes` VALUES (251, '115', '294');
+INSERT INTO `user_likes` VALUES (252, '115', '295');
+INSERT INTO `user_likes` VALUES (253, '115', '296');
+INSERT INTO `user_likes` VALUES (254, '115', '297');
+INSERT INTO `user_likes` VALUES (255, '', '293');
+INSERT INTO `user_likes` VALUES (256, '', '292');
+INSERT INTO `user_likes` VALUES (257, '', '294');
+INSERT INTO `user_likes` VALUES (258, '', '295');
+INSERT INTO `user_likes` VALUES (259, '115', '298');
+INSERT INTO `user_likes` VALUES (260, '115', '299');
+INSERT INTO `user_likes` VALUES (261, '115', '300');
+INSERT INTO `user_likes` VALUES (262, '115', '301');
+INSERT INTO `user_likes` VALUES (263, '115', '302');
+INSERT INTO `user_likes` VALUES (264, '115', '303');
+INSERT INTO `user_likes` VALUES (265, '115', '304');
+INSERT INTO `user_likes` VALUES (266, '115', '305');
+INSERT INTO `user_likes` VALUES (267, '115', '306');
+INSERT INTO `user_likes` VALUES (268, '115', '307');
+INSERT INTO `user_likes` VALUES (269, '115', '308');
+INSERT INTO `user_likes` VALUES (270, '115', '309');
+INSERT INTO `user_likes` VALUES (271, '115', '310');
+INSERT INTO `user_likes` VALUES (272, '115', '311');
+INSERT INTO `user_likes` VALUES (273, '', '300');
+INSERT INTO `user_likes` VALUES (274, '', '281');
+INSERT INTO `user_likes` VALUES (275, '115', '312');
+INSERT INTO `user_likes` VALUES (276, '', '312');
+INSERT INTO `user_likes` VALUES (277, '115', '313');
+INSERT INTO `user_likes` VALUES (278, '', '313');
+INSERT INTO `user_likes` VALUES (279, '', '272');
+INSERT INTO `user_likes` VALUES (280, '', '181');
+INSERT INTO `user_likes` VALUES (281, '', '241');
+INSERT INTO `user_likes` VALUES (282, '', '244');
+INSERT INTO `user_likes` VALUES (283, '', '289');
+INSERT INTO `user_likes` VALUES (284, '', '309');
+INSERT INTO `user_likes` VALUES (285, '', '251');
+INSERT INTO `user_likes` VALUES (286, '', '248');
+INSERT INTO `user_likes` VALUES (287, '115', '314');
+INSERT INTO `user_likes` VALUES (288, '115', '315');
+INSERT INTO `user_likes` VALUES (289, '', '315');
+INSERT INTO `user_likes` VALUES (290, '', '314');
+INSERT INTO `user_likes` VALUES (291, '118', '316');
+INSERT INTO `user_likes` VALUES (292, '115', '317');
+INSERT INTO `user_likes` VALUES (293, '115', '318');
+INSERT INTO `user_likes` VALUES (294, '115', '319');
+INSERT INTO `user_likes` VALUES (295, '115', '320');
+INSERT INTO `user_likes` VALUES (296, '115', '321');
+INSERT INTO `user_likes` VALUES (297, '115', '322');
+INSERT INTO `user_likes` VALUES (298, '115', '323');
+INSERT INTO `user_likes` VALUES (299, '115', '324');
+INSERT INTO `user_likes` VALUES (300, '115', '325');
+INSERT INTO `user_likes` VALUES (301, '115', '326');
+INSERT INTO `user_likes` VALUES (302, '115', '327');
+INSERT INTO `user_likes` VALUES (303, '115', '328');
+INSERT INTO `user_likes` VALUES (304, '115', '329');
+INSERT INTO `user_likes` VALUES (305, '115', '330');
+INSERT INTO `user_likes` VALUES (306, '', '288');
+INSERT INTO `user_likes` VALUES (307, '115', '331');
+INSERT INTO `user_likes` VALUES (308, '115', '332');
+INSERT INTO `user_likes` VALUES (309, '115', '333');
+INSERT INTO `user_likes` VALUES (310, '115', '334');
+INSERT INTO `user_likes` VALUES (311, '115', '335');
+INSERT INTO `user_likes` VALUES (312, '115', '336');
+INSERT INTO `user_likes` VALUES (313, '115', '337');
+INSERT INTO `user_likes` VALUES (314, '115', '338');
+INSERT INTO `user_likes` VALUES (315, '115', '339');
+INSERT INTO `user_likes` VALUES (316, '115', '340');
+INSERT INTO `user_likes` VALUES (317, '115', '341');
+INSERT INTO `user_likes` VALUES (318, '115', '342');
+INSERT INTO `user_likes` VALUES (319, '130', '343');
+INSERT INTO `user_likes` VALUES (320, '130', '344');
+INSERT INTO `user_likes` VALUES (321, '130', '345');
+INSERT INTO `user_likes` VALUES (322, '130', '346');
+INSERT INTO `user_likes` VALUES (323, '130', '347');
+INSERT INTO `user_likes` VALUES (324, '', '347');
+INSERT INTO `user_likes` VALUES (325, '130', '348');
+INSERT INTO `user_likes` VALUES (326, '130', '349');
+INSERT INTO `user_likes` VALUES (327, '130', '350');
+INSERT INTO `user_likes` VALUES (328, '', '350');
+INSERT INTO `user_likes` VALUES (329, '130', '351');
+INSERT INTO `user_likes` VALUES (330, '130', '352');
+INSERT INTO `user_likes` VALUES (331, '130', '353');
+INSERT INTO `user_likes` VALUES (332, '130', '354');
+INSERT INTO `user_likes` VALUES (333, '130', '355');
+INSERT INTO `user_likes` VALUES (334, '130', '356');
+INSERT INTO `user_likes` VALUES (335, '131', '357');
+INSERT INTO `user_likes` VALUES (336, '131', '358');
+INSERT INTO `user_likes` VALUES (337, '130', '359');
+INSERT INTO `user_likes` VALUES (338, '130', '360');
+INSERT INTO `user_likes` VALUES (339, '130', '361');
+INSERT INTO `user_likes` VALUES (340, '130', '362');
+INSERT INTO `user_likes` VALUES (341, '130', '363');
+INSERT INTO `user_likes` VALUES (342, '130', '364');
+INSERT INTO `user_likes` VALUES (343, '130', '365');
+INSERT INTO `user_likes` VALUES (344, '130', '366');
+INSERT INTO `user_likes` VALUES (345, '', '0');
+INSERT INTO `user_likes` VALUES (346, '130', '368');
+INSERT INTO `user_likes` VALUES (347, '130', '369');
+INSERT INTO `user_likes` VALUES (348, '130', '370');
+INSERT INTO `user_likes` VALUES (349, '130', '371');
+INSERT INTO `user_likes` VALUES (350, '130', '372');
+INSERT INTO `user_likes` VALUES (351, '130', '373');
+INSERT INTO `user_likes` VALUES (352, '130', '374');
+INSERT INTO `user_likes` VALUES (353, '130', '375');
+INSERT INTO `user_likes` VALUES (354, '130', '376');
+INSERT INTO `user_likes` VALUES (355, '130', '377');
+INSERT INTO `user_likes` VALUES (356, '130', '378');
+INSERT INTO `user_likes` VALUES (357, '130', '379');
+INSERT INTO `user_likes` VALUES (358, '130', '380');
+INSERT INTO `user_likes` VALUES (359, '', '380');
+INSERT INTO `user_likes` VALUES (360, '130', '381');
+INSERT INTO `user_likes` VALUES (361, '130', '382');
+INSERT INTO `user_likes` VALUES (362, '130', '383');
+INSERT INTO `user_likes` VALUES (363, '130', '384');
+INSERT INTO `user_likes` VALUES (364, '', '245');
+INSERT INTO `user_likes` VALUES (365, '130', '385');
+INSERT INTO `user_likes` VALUES (366, '130', '386');
+INSERT INTO `user_likes` VALUES (367, '130', '387');
+INSERT INTO `user_likes` VALUES (368, '130', '388');
+INSERT INTO `user_likes` VALUES (369, '130', '389');
+INSERT INTO `user_likes` VALUES (370, '130', '390');
+INSERT INTO `user_likes` VALUES (371, '130', '391');
+INSERT INTO `user_likes` VALUES (372, '130', '392');
+INSERT INTO `user_likes` VALUES (373, '130', '393');
+INSERT INTO `user_likes` VALUES (374, '130', '394');
+INSERT INTO `user_likes` VALUES (375, '130', '395');
+INSERT INTO `user_likes` VALUES (376, '130', '396');
+INSERT INTO `user_likes` VALUES (377, '130', '397');
+INSERT INTO `user_likes` VALUES (378, '130', '398');
+INSERT INTO `user_likes` VALUES (379, '130', '399');
+INSERT INTO `user_likes` VALUES (380, '130', '400');
+INSERT INTO `user_likes` VALUES (381, '135', '401');
+INSERT INTO `user_likes` VALUES (382, '135', '402');
+INSERT INTO `user_likes` VALUES (383, '135', '403');
+INSERT INTO `user_likes` VALUES (384, '135', '404');
+INSERT INTO `user_likes` VALUES (385, '135', '405');
+INSERT INTO `user_likes` VALUES (386, '135', '406');
+INSERT INTO `user_likes` VALUES (387, '135', '407');
+INSERT INTO `user_likes` VALUES (388, '135', '408');
+INSERT INTO `user_likes` VALUES (389, '137', '409');
+INSERT INTO `user_likes` VALUES (390, '', '400');
+INSERT INTO `user_likes` VALUES (391, '137', '410');
+INSERT INTO `user_likes` VALUES (392, '130', '411');
+INSERT INTO `user_likes` VALUES (393, '130', '412');
+INSERT INTO `user_likes` VALUES (394, '130', '413');
+INSERT INTO `user_likes` VALUES (395, '130', '414');
+INSERT INTO `user_likes` VALUES (396, '', '410');
+INSERT INTO `user_likes` VALUES (397, '140', '415');
+INSERT INTO `user_likes` VALUES (398, '140', '416');
+INSERT INTO `user_likes` VALUES (399, '140', '417');
+INSERT INTO `user_likes` VALUES (400, '140', '418');
+INSERT INTO `user_likes` VALUES (401, '140', '419');
+INSERT INTO `user_likes` VALUES (402, '140', '420');
+INSERT INTO `user_likes` VALUES (403, '140', '421');
+INSERT INTO `user_likes` VALUES (404, '140', '422');
+INSERT INTO `user_likes` VALUES (405, '130', '423');
+INSERT INTO `user_likes` VALUES (406, '130', '424');
+INSERT INTO `user_likes` VALUES (407, '142', '425');
+INSERT INTO `user_likes` VALUES (408, '142', '426');
+INSERT INTO `user_likes` VALUES (409, '145', '427');
+INSERT INTO `user_likes` VALUES (410, '145', '428');
+INSERT INTO `user_likes` VALUES (411, '145', '429');
+INSERT INTO `user_likes` VALUES (412, '145', '430');
+INSERT INTO `user_likes` VALUES (413, '145', '431');
+INSERT INTO `user_likes` VALUES (414, '145', '432');
+INSERT INTO `user_likes` VALUES (415, '145', '433');
+INSERT INTO `user_likes` VALUES (416, '145', '434');
+INSERT INTO `user_likes` VALUES (417, '145', '435');
+INSERT INTO `user_likes` VALUES (418, '145', '436');
+INSERT INTO `user_likes` VALUES (419, '145', '437');
+INSERT INTO `user_likes` VALUES (420, '145', '438');
+INSERT INTO `user_likes` VALUES (421, '145', '439');
+INSERT INTO `user_likes` VALUES (422, '145', '440');
+INSERT INTO `user_likes` VALUES (423, '145', '441');
+INSERT INTO `user_likes` VALUES (424, '145', '442');
+INSERT INTO `user_likes` VALUES (425, '149', '443');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `user_post`
+-- 
+
+CREATE TABLE `user_post` (
+  `post_id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) NOT NULL,
+  `post_txt` text NOT NULL,
+  `post_pic` varchar(150) NOT NULL,
+  `post_time` varchar(30) NOT NULL,
+  `priority` varchar(8) NOT NULL,
+  `sub_id` varchar(150) NOT NULL,
+  `likes_count` int(15) NOT NULL DEFAULT '0',
+  `post_unix_time` int(15) NOT NULL DEFAULT '1460650000',
+  `link` varchar(220) NOT NULL,
+  `country_id` varchar(20) NOT NULL DEFAULT 'us',
+  PRIMARY KEY (`post_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=444 DEFAULT CHARSET=latin1 AUTO_INCREMENT=444 ;
+
+-- 
+-- Dumping data for table `user_post`
+-- 
+
+INSERT INTO `user_post` VALUES (92, 25, '', 'pic1460111677792', '8-4-2016 13:34', 'public', 'buzz', 0, 1460654336, '', 'us');
+INSERT INTO `user_post` VALUES (158, 25, 'What Is A Bluetooth Bowl?', '', '21-4-2016 14:4', 'public', 'geeky', 52, 1461236647, 'https://www.youtube.com/watch?v=C_uZyD01tos', 'us');
+INSERT INTO `user_post` VALUES (165, 46, 'The Butterfly Effect<br />\r\n', 'pic1461269901050', '21-4-2016 23:18', 'public', 'funny', 26, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (217, 62, '××¨×™×§ ××™× ×©×˜×™×™×Ÿ - ×¢×•×£ ×’×•×–×œ', '', '20-6-2016 8:58', 'public', 'music', 50, 1466402286, 'http://www.youtube.com/watch?v=vkiv2jHaWsg', 'il');
+INSERT INTO `user_post` VALUES (241, 116, 'Who else does that', 'pic1468172760118', '10-7-2016 20:45', 'public', 'funny', 30, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (242, 116, 'Once in a lifetime shot', 'pic1468178437545', '10-7-2016 22:20', 'public', 'cute', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (243, 116, 'Snake with unicorn hat', 'pic1468178479584', '10-7-2016 22:21', 'public', 'cute', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (244, 116, 'There are two types of people', 'pic1468178889027', '10-7-2016 22:28', 'public', 'sport', 1, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (245, 116, 'My expirience with pokemon Go', 'pic1468178966250', '10-7-2016 22:29', 'public', 'gaming', 3, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (248, 115, 'Color Combo Inspiration: Wood Interiors With Grey Accents	&#40;home-designing.com	&#41;', 'pic1469207490843', '22-7-2016 20:11', 'public', 'design', 1, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (250, 115, 'This Gallery-Like Home Reflects A Different Art Style In Every Room	&#40;home-designing.com	&#41;', 'pic1469207630887', '22-7-2016 20:13', 'public', 'design', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (251, 115, 'A Sleek And Surprising Interior Inspired By Scandinavian Modernism	&#40;home-designing.com	&#41;', 'pic1469207712477', '22-7-2016 20:15', 'public', 'design', 2, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (253, 115, 'Blue Ink Leopard by Hua Tunan', 'pic1469257297120', '23-7-2016 10:1', 'public', 'art', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (254, 115, 'MR.Curiosity on Behance. by INDYVISUAL design lab.', 'pic1469257349802', '23-7-2016 10:2', 'public', 'art', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (255, 115, '  ', 'pic1469257438549', '23-7-2016 10:4', 'public', 'art', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (256, 115, '  ', 'pic1469257540342', '23-7-2016 10:5', 'public', 'art', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (257, 115, 'knight spirit by gworld daai', 'pic1469257594153', '23-7-2016 10:6', 'public', 'art', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (263, 115, 'Ender&#039;s Game 	&#40;The Ender Quintet #1	&#41; review by theguardian.com<br />\r\n<br />\r\nAs you come across this book in a bookstore, many of you will probably leave it alone just because of its thickness. Actually, time won&#039;t be a problem 	&#40;I read it in two days.	&#41;<br />\r\n<br />\r\nThe novel tells the story of a young boy, Ender Wiggin, who is sent to a training academy named Battle School, located in orbit above the Earth, built to train people to become soldiers that will one day battle against a vast alien race known as &quot;Buggers&quot;. Ender goes up there, trying his best to become promoted in the difficult training scheme; his brother and sister are trying to restore the world and to make it a better place. For Ender, the training is tough. He is granted a very special teacher, who will help him to become a commander to save humanity from the Third Invasion.<br />\r\n<br />\r\n<br />\r\nSign up to our Bookmarks newsletter<br />\r\n Read more<br />\r\nEnder&#039;s Game 	&#40;written in 1985	&#41; is a science fiction novel written by the American author Orson Scott Card. The book came from the short story with the same name, published in &#039;Analog Science Fiction and Fact&#039; in 1977.  Card later wrote more books to create the Ender&#039;s Game series. An updated version of Ender&#039;s Game was released in 1991, updating some political facts in the book to accurately reflect the era. Themes of the book are love, hate, prejudice 	&#40;Ender is socially excluded for some time in Battle School	&#41;, strength and courage. <br />\r\n<br />\r\nCard was born on 24 August, 1951. He is an American author, critic, public speaker, essayist, columnist, and political activist. He has written books in several genres, but is primarily known for his science fiction. His novel &quot;Ender&#039;s Game&quot; and its sequel &quot;Speaker for the Dead&quot; 	&#40;1986	&#41; both won Hugo and Nebula Awards. Thanks to this Card is the only author to win both top US prizes of Science Fiction in consecutive years.<br />\r\n<br />\r\nWe meet many characters in the book. We see Ender&#039;s family 	&#40;which includes Ender, his mean brother Peter and his sister Valentine	&#41;. Ender also meets lots of friends 	&#40;and enemies	&#41; at Battle School, some of them being Petra, Bonzo, Bean, Alai, Dink, Crazy Tom, Hot Soup and Carn Carby. We also have Colonel Graff and many other people of authority, and even The Queen, from the Buggers. All of these people have different personalities.<br />\r\n<br />\r\nEnder is brave, determined, but whether he is kind or mean changes as he progresses through Battle School. He likes to find consolation together with Valentine. On the opposite side, Peter is less friendly. If he was assigned the mission to kill someone, he might as well have done it. He even horrifies Valentine.<br />\r\n<br />\r\nAll the boys 	&#40;and girls	&#41; at Battle School behave differently. Some are friendly, some are unfriendly. Together, they create interesting relationships concerning Ender.<br />\r\n<br />\r\nEnder&#039;s Game has an interesting narrative style. Card has placed descriptions where appropriate, and he always narrates in an exciting manner. One way he provokes tension in the book is by having an unidentified narrator at the beginning of every chapter. At the beginning, the reader has no clue about who is narrating; at one time I suspected it being the Buggers, which can be quite chilling, as the unknown narrator knows everything about Ender. Only gradually does the reader come to understand who the narrator is. Not only do we have an unknown narrator, but some chapters also switch between Ender&#039;s perspective and his family&#039;s situation.<br />\r\n<br />\r\nAdvertisement<br />\r\n<br />\r\nTo conclude, I would recommend this book to readers over 12 years old, who are mainly interested in Science Fiction, or who are interested in knowing more about how people behave. The language is moderately strong, but also somewhat complex for younger readers.<br />\r\n<br />\r\nThe reason why I liked this book is because it follows a busy, unpredictable, action-packed plot, but the end of the novel is still sad and strong enough to make us reflect on our behaviour and on the book&#039;s events. It is also gripping and exciting, and the reader never knows what will happen next. For example, at one point, another random day turns into a battle in a washroom.<br />\r\n<br />\r\nThe beginning instantly grips you, as the reader is thrust into a new and unknown situation. So much is unknown in the book; slowly everything is explained, as you constantly gather more information about the situation. If you were to start reading from the end 	&#40;I actually tried it	&#41; you would have no idea of what was happening to whom.<br />\r\n<br />\r\nOverall, I would recommend this book to readers because of its excitement, meaning and unpredictability.', 'pic1469270643484', '23-7-2016 13:44', 'public', 'books', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (269, 115, 'Fear You 	&#40;Broken Love #2	&#41; by B.B. Reid<br />\r\n<br />\r\nWhat happens when sheâ€™s had enough?<br />\r\n<br />\r\nLake Monroe has given in to her childhood tormentor too many times. She knows it, he knows it, and even their enemies know it. When he returned after being found guilty of a crime he didn&#039;t commitâ€”a crime he thought she set him up for, he returned darker than ever, demanding her body and her submission. To survive him, she knew she had to give in to fear once more or suffer the deadly consequences...<br />\r\n<br />\r\nBut Lake experienced what it was like to submit to the dark and demanding boy who invaded her dreams. Now sheâ€™ll experience what itâ€™s like to fight him.<br />\r\n<br />\r\nWhat happens when he wants more?<br />\r\n<br />\r\nKeiran Masters has a past that is both shocking and dark. Once enslaved, he now has demons he canâ€™t escapeâ€”demons that have followed him for ten years, demons he blames his beautiful obsession for. He promised to make her pay. He promised to make her break...<br />\r\n<br />\r\nBut after Keiran had conquered her body and tasted her submission, he found a new addiction insteadâ€”one he has no intention of giving up.<br />\r\n<br />\r\nAs secrets unfold,<br />\r\nIdentities are revealed, <br />\r\nDanger closes in,<br />\r\nAnd they both discover what it really means to fear... ', 'pic1469272119425', '23-7-2016 14:8', 'public', 'books', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (270, 115, 'Lying in Wait by Liz Nugent<br />\r\n<br />\r\nThe last people who expect to be meeting with a drug-addicted prostitute are a respected judge and his reclusive wife. And they certainly don&#039;t plan to kill her and bury her in their exquisite suburban garden.<br />\r\n<br />\r\nYet Andrew and Lydia Fitzsimons find themselves in this unfortunate situation.<br />\r\n<br />\r\nWhile Lydia does all she can to protect their innocent son Laurence and their social standing, her husband begins to falls apart.<br />\r\n<br />\r\nBut Laurence is not as naÃ¯ve as Lydia thinks. And his obsession with the dead girl&#039;s family may be the undoing of his own.', 'pic1469272198492', '23-7-2016 14:10', 'public', 'books', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (281, 115, 'Matthew Cornell can paint the ocean with extreme accuracy.', 'pic1469276842979', '23-7-2016 15:27', 'public', 'art', 1, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (284, 115, '  ', 'pic1469562665835', '26-7-2016 22:51', 'public', 'gaming', 6, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (285, 115, '  ', 'pic1469716108908', '28-7-2016 17:28', 'public', 'art', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (286, 115, 'Eminem - Without Me<br />\r\n', '', '29-7-2016 17:5', 'public', 'music', 0, 1469801143, 'https://www.youtube.com/watch?v=YVkUvmDQ3HY', 'us');
+INSERT INTO `user_post` VALUES (288, 115, 'Michael Phelps [USA] - Men&#039;s 200m Medley | Champions of London 2012<br />\r\n', '', '6-8-2016 15:22', 'public', 'sport', 5, 1470486139, 'https://www.youtube.com/watch?v=NUZD-gywYDc', 'us');
+INSERT INTO `user_post` VALUES (292, 115, '××—×¨×™ 20 ×©× ×”: Duke Nukem ×¢×•×©×” ×§×ž×‘×§ ×•×–×” × ×¨××” ×ž×¢×•×œ×”', '', '8-9-2016 19:26', 'public', 'tech', 1, 1473352002, 'http://www.geektime.co.il/duke-nukem-3d-20th-anniversary-edition/', 'il');
+INSERT INTO `user_post` VALUES (303, 115, 'Researchers debunk &#039;five-second rule&#039;: Eating food off the floor isn&#039;t safe<br />\r\n', '', '10-9-2016 10:37', 'public', 'science', 0, 1473493029, 'https://www.sciencedaily.com/releases/2016/09/160909112406.htm', 'us');
+INSERT INTO `user_post` VALUES (309, 115, 'Satisfying color mixing - tumblr', '', '10-9-2016 22:31', 'public', 'design', 1, 1473535887, 'http://paintmixed.tumblr.com', 'us');
+INSERT INTO `user_post` VALUES (311, 115, '6 ×¡×“×¨×•×ª ×˜×œ×•×•×™×–×™×” ×¢×œ ×˜×›× ×•×œ×•×’×™×” ×•×¡×˜××¨×˜××¤×™× ×©××ª× ×¦×¨×™×›×™× ×œ×¨××•×ª<br />\r\n', '', '16-9-2016 12:56', 'public', 'television', 1, 1474019760, 'http://www.geektime.co.il/6-tv-shows-you-need-to-watch/', 'il');
+INSERT INTO `user_post` VALUES (316, 118, '1. ×”×‘×™×¨×” ×©×•×ž×¨×ª ×¢×œ ×”×›×œ×™×•×ª ×©×œ×›× ×‘×¨×™××•×ª! ×ž×—×§×¨ ×—×“×© ×’×™×œ×” ×©×”×‘×™×¨×” ×ž××•×“ ×˜×•×‘×” ×œ×›×œ×™×•×ª ×©×œ×›×. ×œ×ž×¢×©×”, ×›×œ ×‘×§×‘×•×§ ×©×œ ×‘×™×¨×” ×©××ª× ×©×•×ª×™× ×ž×¤×—×™×ª ××ª ×”×¡×™×›×•×Ÿ ×œ×”×ª×¤×ª×—×•×ª ××‘× ×™× ×‘×›×œ×™×•×ª ×‘- 40%.<br />\r\n<br />\r\n2. ×©×ª×™×™×ª ×‘×™×¨×” ×ž×•×¨×™×“×” ××ª ×¨×ž×•×ª ×”×›×•×œ×¡×˜×¨×•×œ ×”×¨×¢ ×©×œ×›×! ×¢×œ×™×›× ×œ×“×¢×ª ×©× ×ž×¦××• ×¡×™×‘×™× ×‘×‘×™×¨×” ×”×¢×•×–×¨×™× ×œ×”×•×¨×“×ª ×¨×ž×•×ª ×”×›×•×œ×¡×˜×¨×•×œ-LDL ×›×œ×•×ž×¨: ××ª ×¡×•×’ ×”×›×•×œ×¡×˜×¨×•×œ ×”&quot;×¨×¢&quot;.<br />\r\n<br />\r\n3. ×”×‘×™×¨×” ×’× ×ª×’×“×™×œ ××ª ×¨×ž×•×ª ×•×™×˜×ž×™×Ÿ ×”-×‘×™ ×©×œ×›×! ×¢×œ ×¤×™ ×”×ž×•×ž×—×™×, ×”×ž×©×§×” ×”×–×” ×ž×›×™×œ ×ž×¡×¤×¨ ×¡×•×’×™× ×©×œ ×•×™×˜×ž×™×Ÿ ×‘×™ &#40;×‘×™-1, ×‘×™-2, ×‘×™-6 ×•-×‘×™-12&#41;. ×”× ×’× ××•×ž×¨×™× ×©×œ×©×•×ª×™× ×‘×™×¨×” ×¢×œ ×‘×¡×™×¡ ×§×‘×•×¢, ×™×© ×¨×ž×•×ª ×’×‘×•×”×•×ª ×‘-30% ×©×œ ×•×™×˜×ž×™×Ÿ ×‘×™-6 ×ž××©×¨ ×©×œ ××œ×” ×©×œ× ×©×•×ª×™×; ×•×¨×ž×” ×ž×•×›×¤×œ×ª ×‘×©×ª×™×™× ×ž××©×¨ ××œ×” ×©×©×•×ª×™× ×™×™×Ÿ. ×”×‘×™×¨×” ×”×™× ×’× ×ž×§×•×¨ × ×“×™×‘ ×©×œ ×‘×™-12.<br />\r\n<br />\r\n4. ×©×ª×™×™×ª ×‘×™×¨×” ×œ×¢×¦×ž×•×ª ×—×–×§×•×ª! ×›×Ÿ, ×ž×—×§×¨ ×—×©×£ ×©×”×¨×ž×•×ª ×”×’×‘×•×”×•×ª ×©×œ ×”×¡×™×œ×™×§×•×Ÿ ×‘×‘×™×¨×”, ×ª×•×¨×ž×•×ª ×œ×¦×¤×™×¤×•×ª ×”×¢×¦×.<br />\r\n<br />\r\n5. ×”×‘×™×¨×” ×’× ×¤×•×¢×œ×ª × ×”×“×¨ ×›×ž×¨×¤× ×œ× ×“×•×“×™-×©×™× ×”! ×œ×§×˜×•×¤×œ××‘×™×Ÿ &#40;Lactoflavin&#41; ×•×—×•×ž×¦×” × ×™×§×•×˜×™× ×™×ª ×©×©×ª×™×”×Ÿ × ×ž×¦××•×ª ×‘×‘×™×¨×”, ×ž×¢×•×“×“×•×ª ×©×™× ×”.<br />\r\n<br />\r\n6. ×©×ª×™×™×ª ×‘×™×¨×” ×ž×¤×—×™×ª×” ×‘×¦×•×¨×” ×ž×©×ž×¢×•×ª×™×ª, ××ª ×”×¡×™×›×•×Ÿ ×©×œ×›× ×œ×”×ª×§×¤×ª ×œ×‘! ×¢×¤&quot;×™ ×ž×•×ž×—×™×, ×œ×× ×©×™× ×©×©×•×ª×™× ×‘×™×¨×” ×™×© 40-60% ×¤×—×•×ª ×¡×™×›×•×™ ×œ×¡×‘×•×œ ×ž×”×ª×§×¤×ª ×œ×‘ ×‘×”×©×•×•××” ×œ××œ×” ×©×œ× ×©×•×ª×™×.<br />\r\n<br />\r\n7. ×”×‘×™×¨×” ×ž×•× ×¢×ª ×§×¨×™×©×™ ×“×! ××™×š ×–×” ×¢×•×‘×“? ×•×‘×›×Ÿ, ×”×ž×•×ž×—×™× ××•×ž×¨×™× ×©×”×ž×¨×›×™×‘×™× ×©×”×ª×’×œ×• ×‘×‘×™×¨×” ×¢×•×–×¨×™× ×œ×ž× ×•×¢ ××ª ×”×ª×’×‘×©×•×ª× ×©×œ ×§×¨×™×©×™ ×”×“×.<br />\r\n<br />\r\n8. ×©×ª×™×™×ª ×‘×™×¨×” ×ª×©×¤×¨ ××ª ×”×–×™×›×¨×•×Ÿ ×©×œ×›×! ×ž×—×§×¨ ×©× ×¢×¨×š ×œ××—×¨×•× ×” ×”×¨××” ×©×”×¡×‘×™×¨×•×ª ×©×× ×©×™× ×©×©×•×ª×™× ×‘×™×¨×” ×™×¡×‘×œ×• ×ž×ž×—×œ×ª ×”××œ×¦×”×™×™×ž×¨ ×•×“×™×ž× ×¦×™×” × ×ž×•×›×” ×ž××•×“ ×‘×”×©×•×•××” ×œ××œ×• ×©×œ× ×©×•×ª×™× ×‘×™×¨×”.<br />\r\n<br />\r\n9. ×”×‘×™×¨×” ×ª×¢×–×•×¨ ×œ×›× ×œ×”×¤×—×™×ª ××ª ×”×ž×ª×—. ×§×‘×•×¦×” ×©×œ ×ž×•×ž×—×™× ×‘××•× ×™×‘×¨×¡×™×˜×ª ×ž×•× ×˜×¨×™××•×œ, ×’×™×œ×• ×©×©×ª×™ ×›×•×¡×•×ª ×©×œ ×‘×™×¨×” ×‘×™×•×, ×ž×¤×—×™×ª×•×ª ××ª ×”×ž×ª×™×—×•×ª ×•×”×—×¨×“×•×ª ×”× ×•×‘×¢×•×ª ×ž×”×¢×‘×•×“×”.<br />\r\n<br />\r\n10. ×©×ª×™×™×ª ×‘×™×¨×” ×ª×¢×–×•×¨ ×œ×¢×•×¨ ×©×œ×›× ×œ×”×™×¨××•×ª ×¦×¢×™×¨ ×™×•×ª×¨ ×•×™×¤×”×™×¤×”! ×‘× ×•×ª, ×–×” × ×”×“×¨- × ×›×•×Ÿ? ×”×ž×•×ž×—×™× ××•×ž×¨×™× ×©×ž×¡×¤×¨ ×•×™×˜×ž×™× ×™× ×‘×‘×™×¨×”, ×¢×•×–×¨×™× ×œ×”×ª×—×“×©×•×ª ×”×¢×•×¨ ×•×™×© ×œ×”× ×”×©×¤×¢×” ×—×™×•×‘×™×ª ×¢×œ ×”×¤×™×’×ž× ×˜×¦×™×”. ×”×¢×•×¨ ×©×œ×›× ×™×”×¤×•×š ×œ×—×œ×§ ×™×•×ª×¨.<br />\r\n<br />\r\n', '', '9-10-2016 12:21', 'public', 'health', 0, 1476004879, 'http://shifke.com/%D7%A9%D7%AA%D7%99%D7%99%D7%AA-%D7%91%D7%99%D7%A8%D7%94-10-%D7%A1%D7%99%D7%91%D7%95%D7%AA-%D7%91%D7%A8%D7%99%D7%90%D7%95%D7%AA%D7%99%D7%95%D7%AA/', 'us');
+INSERT INTO `user_post` VALUES (350, 130, 'Stevie Wonder - Superstition', 'pic1482789419150.mp3', '26-12-2016 23:56', 'public', 'music', 27, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (358, 131, 'Warby Parker: Dave Gilboa &amp; Neil Blumenthal<br />\r\nIn 2008, it was nearly impossible to buy a fashionable, affordable pair of glasses online. That simple frustration inspired the idea behind Warby Parker â€“ and disrupted the eyewear industry.', 'pic1482847446152.mp3', '27-12-2016 16:2', 'public', 'podcasts', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (370, 130, '×’×‘×™ ×©×•×©×Ÿ - ×‘×¨××©×™×ª', 'pic1482860542961.mp3', '27-12-2016 19:42', 'public', 'music', 0, 1460650000, '', 'il');
+INSERT INTO `user_post` VALUES (384, 130, 'Dave was bragging to his boss one day, &quot;You know, I know everyone there is to know. Just name someone, anyone, and I know them.&quot; <br>\r\nTired of his boasting, his boss called his bluff, &quot;OK, Dave, how about Tom Cruise?&quot; <br>\r\n&quot;No dramas boss, Tom and I are old friends, and I can prove it.&quot; So Dave and his boss fly out to Hollywood and knock on Tom Cruise&#039;s door, and Tom Cruise shouts, <br>\r\n&quot;Dave! What&#039;s happening? Great to see you! Come on in for a beer!&quot; <br>\r\nAlthough impressed, Dave&#039;s boss is still skeptical. After they leave Cruise&#039;s house, he tells Dave that he thinks him knowing Cruise was just lucky. <br>\r\n&quot;No, no, just name anyone else,&quot; Dave says. <br>\r\n&quot;President Obama,&quot; his boss quickly retorts. <br>\r\n&quot;Yup,&quot; Dave says, &quot;Old buddies, let&#039;s fly out to Washington,&quot; and off they go. <br>\r\nAt the White House, Obama spots Dave on the tour and motions him and his boss over, saying, &quot;Dave, what a surprise, I was just on my way to a meeting, but you and your friend come on in and let&#039;s have a beer first and catch up.&quot; <br>\r\nWell, the boss is very shaken by now but still not totally convinced. After they leave the White House grounds he expresses his doubts to Dave, who again implores him to name anyone else. <br>\r\n&quot;Pope Francis,&quot; his boss replies. <br>\r\n&quot;Sure!&quot; says Dave. &quot;I&#039;ve known the Pope for years.&quot; So off they fly to Rome. <br>\r\nDave and his boss are assembled with the masses at the Vatican&#039;s St. Peter&#039;s Square when Dave says, &quot;This will never work. I can&#039;t catch the Pope&#039;s eye among all these people. Tell you what, I know all the guards so let me just go upstairs and I&#039;ll come out on the balcony with the Pope.&quot; He disappears into the crowd headed towards the Vatican. <br>\r\nSure enough, half an hour later Dave emerges with the Pope on the balcony, but by the time Dave returns, he finds that his boss has had a heart attack and is surrounded by paramedics. <br>\r\nMaking his way to his boss&#039; side, Dave asks him, &quot;What happened?&quot; <br>\r\nHis boss looks up and says, &quot;It was the final straw... you and the Pope came out on to the balcony and the man next to me said, &#039;Who the fuck is that on the balcony with Dave?&#039;', '', '31-12-2016 16:55', 'public', 'funny', 0, 1483196109, '', 'us');
+INSERT INTO `user_post` VALUES (386, 130, 'No words', 'pic1483300919126.jpeg', '1-1-2017 22:2', 'public', 'funny', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (387, 130, '  ', 'pic1483302364655.jpeg', '1-1-2017 22:26', 'public', 'funny', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (389, 130, '  ', 'pic1483302775689.jpeg', '1-1-2017 22:33', 'public', 'funny', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (390, 130, 'David Guetta - Lovers On The Sun', 'pic1483483180693.mp3', '4-1-2017 0:39', 'public', 'music', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (392, 130, 'David Guetta, Cedric Gervais &amp; Chris Willis - Would I Lie To You 	&#40;Lyric Video	&#41; <br>\r\n', 'pic1483483226362.mp4', '4-1-2017 0:39', 'public', 'music', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (393, 130, 'Cypress Hill featuring Tom Morello - Rise Up <br>\r\n', 'pic1483483398132.mp3', '4-1-2017 0:43', 'public', 'music', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (394, 130, 'Train - 50 Ways to Say Goodbye <br>\r\n', 'pic1483483833639.mp4', '4-1-2017 0:49', 'public', 'music', 7, 1460650000, '', 'il');
+INSERT INTO `user_post` VALUES (395, 130, 'Passenger | Let Her Go', 'pic1483483926585.mp3', '4-1-2017 0:51', 'public', 'music', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (399, 130, 'Becca Krueger Cover of Ray Charles &quot;Hit the Road Jack&quot;<br />\r\n', 'pic1483546364835.mp4', '4-1-2017 18:11', 'public', 'music', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (415, 140, 'Aw look!', 'pic1497628041642.png', '16-6-2017 18:48', 'public', 'funny', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (416, 140, 'Ouija board', 'pic1497628256165.jpeg', '16-6-2017 18:51', 'public', 'funny', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (417, 140, 'Origin story', 'pic1497628403071.png', '16-6-2017 18:54', 'public', 'funny', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (418, 140, 'Hell', 'pic1497628544088.jpeg', '16-6-2017 18:56', 'public', 'comic', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (419, 140, 'Vacation', 'pic1497628584611.png', '16-6-2017 18:57', 'public', 'comic', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (420, 140, 'wishful thinking', 'pic1497628612742.png', '16-6-2017 18:57', 'public', 'funny', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (421, 140, 'HOW TO: Inspire', 'pic1497628697813.jpeg', '16-6-2017 18:59', 'public', 'comic', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (422, 140, 'goose trubs', 'pic1497628998995.jpeg', '16-6-2017 19:4', 'public', 'comic', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (423, 130, 'Soha - Mil Pasos', 'pic1498227830221.mp3', '23-6-2017 17:23', 'public', 'music', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (424, 130, 'Creep - Vintage Postmodern Jukebox Radiohead Cover ft. Haley Reinhart <br>\r\n', 'pic1498228162234.mp4', '23-6-2017 17:28', 'public', 'music', 0, 1460650000, '', 'us');
+INSERT INTO `user_post` VALUES (427, 145, '  ', 'pic1504992079838.png', '10-9-2017 0:21', 'public', 'funny', 0, 1460650000, '', 'il');
+INSERT INTO `user_post` VALUES (428, 145, '  ', 'pic1504992176575.png', '10-9-2017 0:23', 'public', 'funny', 0, 1460650000, '', 'il');
+INSERT INTO `user_post` VALUES (429, 145, '  ', 'pic1504992240739.jpeg', '10-9-2017 0:24', 'public', 'funny', 0, 1460650000, '', 'il');
+INSERT INTO `user_post` VALUES (430, 145, '  ', 'pic1504992277664.png', '10-9-2017 0:24', 'public', 'funny', 0, 1460650000, '', 'il');
+INSERT INTO `user_post` VALUES (431, 145, '×ž×ª×›× ×ª×™× ×™×‘×™× ×•', 'pic1504992331524.png', '10-9-2017 0:25', 'public', 'geeky', 0, 1460650000, '', 'il');
+INSERT INTO `user_post` VALUES (432, 145, '  ', 'pic1504992382343.png', '10-9-2017 0:26', 'public', 'funny', 0, 1460650000, '', 'il');
+INSERT INTO `user_post` VALUES (433, 145, '  ', 'pic1504992407174.png', '10-9-2017 0:26', 'public', 'funny', 0, 1460650000, '', 'il');
+INSERT INTO `user_post` VALUES (434, 145, '  ', 'pic1504992429546.png', '10-9-2017 0:27', 'public', 'funny', 0, 1460650000, '', 'il');
+INSERT INTO `user_post` VALUES (435, 145, '  ', 'pic1504992458017.png', '10-9-2017 0:27', 'public', 'funny', 0, 1460650000, '', 'il');
+INSERT INTO `user_post` VALUES (436, 145, '  ', 'pic1504992490440.png', '10-9-2017 0:28', 'public', 'funny', 0, 1460650000, '', 'il');
+INSERT INTO `user_post` VALUES (437, 145, '×“×ª×™×™× ×™×‘×™× ×•', 'pic1504992524673.png', '10-9-2017 0:28', 'public', 'funny', 0, 1460650000, '', 'il');
+INSERT INTO `user_post` VALUES (438, 145, '  ', 'pic1504992550891.png', '10-9-2017 0:29', 'public', 'funny', 0, 1460650000, '', 'il');
+INSERT INTO `user_post` VALUES (439, 145, '×“×•××¨ ×™×©×¨××œ', 'pic1504992603250.png', '10-9-2017 0:30', 'public', 'funny', 0, 1460650000, '', 'il');
+INSERT INTO `user_post` VALUES (440, 145, '  ', 'pic1504992634773.png', '10-9-2017 0:30', 'public', 'funny', 0, 1460650000, '', 'il');
+INSERT INTO `user_post` VALUES (441, 145, '  ', 'pic1504992799806.png', '10-9-2017 0:33', 'public', 'funny', 0, 1460650000, '', 'il');
+INSERT INTO `user_post` VALUES (442, 145, '  ', 'pic1504992848437.png', '10-9-2017 0:34', 'public', 'funny', 0, 1460650000, '', 'il');
+INSERT INTO `user_post` VALUES (443, 149, 'puppy love', 'pic1510253725827.png', '9-11-2017 20:55', 'public', 'funny', 0, 1460650000, '', 'us');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `user_post_comment`
+-- 
+
+CREATE TABLE `user_post_comment` (
+  `comment_id` int(7) NOT NULL AUTO_INCREMENT,
+  `post_id` int(7) NOT NULL,
+  `user_id` int(7) NOT NULL,
+  `comment` text NOT NULL,
+  PRIMARY KEY (`comment_id`),
+  KEY `user_id` (`user_id`),
+  KEY `post_id` (`post_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=193 DEFAULT CHARSET=latin1 AUTO_INCREMENT=193 ;
+
+-- 
+-- Dumping data for table `user_post_comment`
+-- 
+
+INSERT INTO `user_post_comment` VALUES (143, 217, 62, '××—×“ ×”×–×ž×¨×™× ×”×˜×•×‘×™× ×‘×™×•×ª×¨ ×‘×™×©×¨××œ ××™ ×¤×¢×');
+INSERT INTO `user_post_comment` VALUES (155, 263, 115, 'Great book. Its rare that I find book that I find intersting, but for sure I found this book fascinating');
+INSERT INTO `user_post_comment` VALUES (157, 285, 115, '×ž×ž×© ×™×¤×”');
+INSERT INTO `user_post_comment` VALUES (187, 244, 130, 'asd');
+INSERT INTO `user_post_comment` VALUES (188, 244, 130, 'a');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `user_post_status`
+-- 
+
+CREATE TABLE `user_post_status` (
+  `status_id` int(7) NOT NULL AUTO_INCREMENT,
+  `post_id` int(7) NOT NULL,
+  `user_id` int(7) NOT NULL,
+  `status` varchar(7) NOT NULL,
+  PRIMARY KEY (`status_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- 
+-- Dumping data for table `user_post_status`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `user_profile_pic`
+-- 
+
+CREATE TABLE `user_profile_pic` (
+  `profile_id` int(7) NOT NULL AUTO_INCREMENT,
+  `user_id` int(7) NOT NULL,
+  `image` varchar(150) NOT NULL,
+  PRIMARY KEY (`profile_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
+
+-- 
+-- Dumping data for table `user_profile_pic`
+-- 
+
+INSERT INTO `user_profile_pic` VALUES (6, 8, 'my.jpg');
+INSERT INTO `user_profile_pic` VALUES (22, 25, 'finance.jpg');
+INSERT INTO `user_profile_pic` VALUES (23, 26, 'cute.jpg');
+INSERT INTO `user_profile_pic` VALUES (24, 27, 'IMG-20160405-WA0010.jpg');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `user_secret_quotes`
+-- 
+
+CREATE TABLE `user_secret_quotes` (
+  `user_id` int(7) NOT NULL,
+  `Question1` varchar(50) NOT NULL,
+  `Answer1` varchar(20) NOT NULL,
+  `Question2` varchar(50) NOT NULL,
+  `Answer2` varchar(20) NOT NULL,
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- 
+-- Dumping data for table `user_secret_quotes`
+-- 
+
+INSERT INTO `user_secret_quotes` VALUES (8, 'what is the first name of your oldest nephew?', 'OneRaj', 'who is your all-time favorite movie character?', 'Amir Khan');
+INSERT INTO `user_secret_quotes` VALUES (25, 'what is your oldest cousins name?', 'asdad', 'what is the name of your favorite sports team?', 'asdda');
+INSERT INTO `user_secret_quotes` VALUES (26, 'what is your youngest childs nickname?', 'asdad', 'what was you first pets name?', 'dasd');
+INSERT INTO `user_secret_quotes` VALUES (27, 'what is your oldest childs nickname?', 'Ncjcj', 'who is your all-time favorite movie character?', 'Hchxh');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `user_status`
+-- 
+
+CREATE TABLE `user_status` (
+  `user_id` int(7) NOT NULL,
+  `status` varchar(8) NOT NULL,
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- 
+-- Dumping data for table `user_status`
+-- 
+
+INSERT INTO `user_status` VALUES (8, 'Offline');
+INSERT INTO `user_status` VALUES (25, 'Online');
+INSERT INTO `user_status` VALUES (26, 'Offline');
+INSERT INTO `user_status` VALUES (27, 'Online');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `user_warning`
+-- 
+
+CREATE TABLE `user_warning` (
+  `user_id` int(7) NOT NULL,
+  `warning_txt` varchar(200) NOT NULL,
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- 
+-- Dumping data for table `user_warning`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `users`
+-- 
+
+CREATE TABLE `users` (
+  `user_id` int(7) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(25) NOT NULL,
+  `Email` varchar(30) NOT NULL,
+  `Password` varchar(70) NOT NULL,
+  `Gender` varchar(6) NOT NULL,
+  `Birthday_Date` varchar(11) NOT NULL,
+  `FB_Join_Date` varchar(30) NOT NULL,
+  `country_id` varchar(20) NOT NULL DEFAULT 'us',
+  `second_country_id` varchar(20) NOT NULL DEFAULT 'dummy',
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=151 DEFAULT CHARSET=latin1 AUTO_INCREMENT=151 ;
+
+-- 
+-- Dumping data for table `users`
+-- 
+
+INSERT INTO `users` VALUES (8, 'Amit Dodiya', 'amit.ad1i4@yahoo.com', 'myfaceback', 'Male', '14-1-1994', '18-9-2013 22:10', 'us', 'dummy');
+INSERT INTO `users` VALUES (25, 'asdad', 'yagel@gmail.com', '$2y$10$H6WmfBKjZjiEqScdVB9TOuiOYI8r2TwBqlm2er77QkORE2yFKRmX.', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (26, 'asdadas', 'yagelasd@gmail.com', '$2y$10$cIvA/SPAB5gO58k3P.AtH.hcrmpuCGOIqebd2KSRnDxATj/cgjlbe', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (27, 'Uzhxhx', 'yagelxhhx@gmail.com', '$2y$10$1ARTN8dl7D1yZ0WRusuvIOWqrKhsCBNKa/.JsRl1bkk6I10dJT0Ce', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (28, 'Ududjd', 'yagelxhduudhx@gmail.com', '$2y$10$dPHbbI1M8f3WUzmNbwD9Zu9w3S6VWILoD4u/T8kfLXbVr6UEDnIBq', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (29, 'Gubhj hjnh', 'yagelxhhxh@gmail.com', '$2y$10$YYsqcf2be9MMyncFYLpQAOtKC.BrHA8G8b/rhCX6QAxg/Gc8gBcuq', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (30, 'asdasdasd', 'asdassd@gmail.com', '$2y$10$BnQ49lwYp2IRy7m6t4hv9.3h1OPL5vB8p7UG8eZhUxnN51mAAM.Va', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (31, 'asdasdas', 'yagasdael@gmail.com', '$2y$10$kRbwC.vfId7nk4AOFli4s.RZKm8PFMWYsJSCnstei0O4FUo7aDZGm', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (32, 'asdasdasd', 'asdassdsdasda@gmail.com', '$2y$10$2Iww6SkQTbfPO1lJh2shw.EcAXisdGpctSMlBFS9ZyUyqRMS0.cMy', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (33, 'hjhjkhk', 'jkjlk@dsjka.com', '$2y$10$sJULKLjgE35/09j3v7..0..AePaEy1T9.rRMNWdz.qd9Yw2wXOrgy', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (34, '×™×•×—×¢×•', 'yagelbjb@gmail.com', '$2y$10$hf0ynkDFe8e7x5C/A2PQmu.1CCWXHyLRnkxaUHjuRw8VU/p/P2fTi', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (35, 'karin', 'karin@gmail.com', '$2y$10$OQLNjeNGRZiottQh9gCho.a8swjL5qkqgsCdnP153lq6Y0vKwOeG6', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (36, 'dasda', 'yageasdal@gmail.com', '$2y$10$7wf.Fr5uUTJxPIViI1CtkOwNj4xhs.6KeuGRdDVaxbmUCtsIcMxbO', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (37, 'asdas', 'yagel@gmail.comasda', '$2y$10$YiJGAYhyBdh/AybRxcDXoekBfuBkDThTARZSsJdUw4mOzLxrpVbEy', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (38, 'asdas', 'adyagel@gmail.com', '$2y$10$xNxqVMN/SyeQ8AUPfW5A2.uQX6NgmOAatUgbIlbYfbN6WWSPf3rxW', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (39, 'asdas', 'yagsadasel@gmail.com', '$2y$10$PtJK0dLAyg48KOqlcQJvE.D/BBmk6hyWTdM6FgZaOnCiylrUB0ujK', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (40, 'asdasdsa', 'yddaagel@gmail.com', '$2y$10$HcM0fdz5Lyq2/THi0l9myOlJz.1fm5J3ad.UrVNYWlTlJa29UgoHG', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (41, 'asdasd', 'yadsagel@gmail.com', '$2y$10$6WqNlomqx9jl0DuBYgoMje2KbDnTmSMA28yju/JXe.0s4H4q2EeRO', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (42, 'Dhudhddu', 'yagelxhhxjsjs@gmail.com', '$2y$10$vaKtY3QclsK3rEF.gaejbupnJ3EAqfUk6GgnJbL.0ziUnnRgfL7xi', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (43, 'asddasd', 'adayagel@gmail.com', '$2y$10$0gUHElnrCX/XF0iZq8bkPe1aV5F9rWKAfejQS6zpGVaMYRMnCaX2C', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (44, 'Jcjdjd', 'yagelx@gmail.com', '$2y$10$i3dAWjBHVD4pj.EjdlnoOeP/PmQWbxHCpUTer9WQviXo9PClio9JS', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (45, 'Jcjdjd', 'yagelhdbdhd@gmail.com', '$2y$10$qRgwyo1h4Wie2.XpCJ9s7OQRERJM1tm/48kZuGyZBHUCvHjmwSTyS', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (46, 'asdasd', 'asdasd@asdas.com', '$2y$10$Sn4/gbr2KrmTtEzOw6Ez0e/LrFiGQQvm9GF/nWbjWFTe8ASk8XgqS', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (47, 'asdas', 'dasdsd@asdas.com', '$2y$10$qS1jqHZi2JCOjRNK2B2RjeiFWeYbrBtb2Zm4RX9wAxOL0I.0b..S2', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (48, 'asdasd', 'asdasd@asdd.com', '$2y$10$LA27Fka143bfcXckaHbCFuulYHoUn0f1fmVP9SqcEYUyHO5YBBs1q', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (49, 'Noobgel', 'S@gmail.com', '$2y$10$mv67xMtTLwdsUI1CZgX.bOmc4WE8V6C4tIL5L7gE82iD0oLiqDNyW', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (50, 'sdasdas', 'sdasdas', '$2y$10$.U/2WUoOKIiHpnqAs/GxAOURDyXJ.mtwfgpxNslqE0D1eP2ezZJ9C', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (51, 'yasdasdagel@gmail.com', 'yasdasdagel@gmail.com', '$2y$10$H0UqdD7lDSHylNLbz8GeGOS9ALWjjd8BWscXIgw3NqfkJjudg225q', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (52, '×“×’×“×©×’×“×©', '×“×’×“×©×’×“×©', '$2y$10$jon4wMDGs3ek0yaihIXCh.deNxyMWI6n54v3Z2EacuByR58ROQbfy', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (53, 'blom9', 'blom9', '$2y$10$7BdBQwW0fm9MqJ8JfzKf7u90lCIogz0qoQ7T4mV9inAJu6hePfOJu', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (54, 'hello_world', 'hello_world', '$2y$10$ZXEeCByPehX1YEXHToa08uPwQwuyH5mKcVBd/HEi9xtCcExpMH7tu', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (55, 'hello world', 'hello world', '$2y$10$lx9BW7Yp7spHrBtC47x/2evlzgRQiBhFBhuhFi1J7URx7Th5qUlay', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (56, 'Fjkbfilbfg', 'Fjkbfilbfg', '$2y$10$DkCXhINorV7yhaOtwTbc..NR2OWOkab92akgCuqB.xCDd.WLs6bBC', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (57, 'asdasdas', 'asdasdas', '$2y$10$lecpnSJ9JWN4nnOPaHRObeRZKFe9IK.eNRoCo4Zuq.Vcg9SntpjwK', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (58, 'blom99', 'blom99', '$2y$10$vWcVFigJQfTcOCaNRsKEjuBivHnCqUBklr9Q1mWv0ke83ZeFLEr7G', 'Male', '11-11-1990', '', 'il', 'dummy');
+INSERT INTO `users` VALUES (59, 'blom1000', 'blom1000', '$2y$10$GSeniJx2XuDCuv7EpQGxKOx0IewNqRQ3G6/5sNt0q/jPoIUxyCxWy', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (60, 'asdasd', 'asdasd', '$2y$10$ZC8U.Ys57U4tPzrgozezh.BE8/MPdBSOl8.U17sHwpSQbO7JKAOZm', 'Male', '11-11-1990', '', 'il', 'dummy');
+INSERT INTO `users` VALUES (61, 'Ubibinun', 'Ubibinun', '$2y$10$R97YZ2lSt0jff9QCwfkEYeWkBjZPs5.XRVjpD9Xc1LoiwXA0PipeG', 'Male', '11-11-1990', '', 'il', 'dummy');
+INSERT INTO `users` VALUES (62, 'Israel', 'Israel', '$2y$10$rm2NpbqRFD5U5FdxsqnS8uBHEkvhlBBaX.ZSuEhBGK4r/DUWVjdoy', 'Male', '11-11-1990', '', 'il', 'dummy');
+INSERT INTO `users` VALUES (63, 'ISRAEL1', 'ISRAEL1', '$2y$10$.hLGqI9bzd1X2nYGXszfsecJOlH3gozZRU.o9qZX.PdejhVLQNIg2', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (64, 'asdasda', 'asdasda', '$2y$10$seuY4943P7uoiFC8aUmyi.97YMcYfZZtmfy8nifXtvX4X/uvKA/au', 'Male', '11-11-1990', '', 'il', 'dummy');
+INSERT INTO `users` VALUES (65, 'china', 'china', '$2y$10$7L2E8lPm7cNbkaZiFRCxL.xTokApFyCEed4SBx9dHdL/RSi4i3zbW', 'Male', '11-11-1990', '', 'ch', 'dummy');
+INSERT INTO `users` VALUES (66, 'Uddhu', 'Uddhu', '$2y$10$My0x5wZPgY/9o5XQ5bRha.HXLv4OfO7f1feaIJJXMjKiaBJMiTWWO', 'Male', '11-11-1990', '', 'il', 'dummy');
+INSERT INTO `users` VALUES (67, 'asdasdasd', 'asdasdasd', '$2y$10$NKty1Sfx83j48tlh4AC.ge7i4QtwNcSj1vaTiK5W1hej6OyByaGfe', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (68, 'fasfasd', 'fasfasd', '$2y$10$IkZ2EyzVXvXOaIUT541/A.LgV7Rf.2kyra9e/5nX3o/vFyd090yI6', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (69, 'asfcw', 'asfcw', '$2y$10$KbYI9KjkVcGiMSwPc/rj7u1P3J1M0uYaPHbDx6M1.etocM5e/HzJ.', 'Male', '11-11-1990', '', 'ch', 'dummy');
+INSERT INTO `users` VALUES (70, 'asdqwdqw', 'asdqwdqw', '$2y$10$EllS7OfRugUq.F1YTcuX4OJ3gYt6x1yYwWGFdT30Q9yCwHpspHQhy', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (71, 'fghfgh', 'fghfgh', '$2y$10$SvxaiEvYqCKkRtciRgyjlOOULRbkBqGNqI2tTV8z49yCCC/NIqIgy', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (72, 'asdasdsa', 'asdasdsa', '$2y$10$1ip7nZced2TdsM0wGRYnVOxse7FDBCfBt5hIa.z/yY7gJtu85ovAC', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (73, 'aeaeae', 'aeaeae', '$2y$10$hUERefG6sDAh2u4V3dJ4jOA073mxNNv1pRFsy4DIgub1rh8MenYni', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (74, 'gdfgfd', 'gdfgfd', '$2y$10$7.9acCoIW2VrxdUBZumaGenXulTOUwa6O15PApYylR.Ln3wMumejG', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (75, 'asdascasc2w', 'asdascasc2w', '$2y$10$S25hF9O/BlGwBynklLl1GOh73Mibtmh18RfEqFPwiOzaD3V1DQH9q', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (76, 'asddgdsg', 'asddgdsg', '$2y$10$gAyyv5dsMMhHbNB6Pexxi.xQ.my3FxD4/ZUC8YquvmcaqTwwbnJQy', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (77, 'gggggggg', 'gggggggg', '$2y$10$qJqcL2nZqS0O90XBKfGBauPsz3szSu5TqW30O7EGsGgfOO6T47dH2', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (78, 'asdasdasdfhdf', 'asdasdasdfhdf', '$2y$10$TSgrIY7xf7Fgktj3z0W4Nu6ISgl8jAyUSJLoXeB9ZL0pPckN30WuC', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (80, 'fdgdfgr4', 'fdgdfgr4', '$2y$10$MUeJJvAtngtYV4lXhmcNmOd3Sb/VDhZrl4u2haQgUn05MJJe4EdpS', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (84, 'fgjhfg', 'fgjhfg', '$2y$10$uNjsDLYTEXykQvlKYOVCeum4TpN6R.YinN3MtO.o9rg7BuplvXkTm', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (85, 'hello  world', 'hello  world', '$2y$10$O2Sp2OBdwSECWQA82VPxku5KIXkhjJFwiT5wBCAy//XrTAdtw90g2', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (86, 'chinese', 'chinese', '$2y$10$WH59L1pw24DXiVB6Qun3RuQaFoVhDV.0ERKMkD7d3Frah7/Phij3i', 'Male', '11-11-1990', '', 'ch', 'dummy');
+INSERT INTO `users` VALUES (87, 'chinaisrael', 'chinaisrael', '$2y$10$KvoZiqw86QVmAES0S7CtaeSHIYSrDjtvPSb.eSxPYIJnHDC.vcbne', 'Male', '11-11-1990', '', 'ch', 'il');
+INSERT INTO `users` VALUES (88, 'chinaisrael1', 'chinaisrael1', '$2y$10$nVi7Tv3s0bUWk04rxJ1Ay.VEFmUNhXF1FIbI0dI8.aJL..0NCxdO6', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (89, 'asdasd&', 'asdasd&', '$2y$10$wMrfp.DrTZomUSPFw98qw.D85.tfr7kFkaiu87JZ6HG6mR/jtRCC2', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (90, 'ghfghâ™¥', 'ghfghâ™¥', '$2y$10$9cI00thSlAaiXBmRIiWNg.AHA2KFK6bdcDNSBCe4KyOgHyRGm6G.S', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (91, 'chinaisrael21312', 'chinaisrael21312', '$2y$10$jtTOMIs8UvowlTaICh5iYe/aDOpd6QkaOm0iHK7XduwCjbBarqoeq', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (92, 'sdf', 'sdf', '$2y$10$ZCiYdjI1Ak6mNBjlgbUv5.kF6vDElgeK7PE2AB0.CMfMEp8ovqO66', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (93, 'a', 'a', '$2y$10$0dMizRvxHyrHV70t9tXsf.KcOznHJ2ZIJsHpDvhVNEcNKhG6m91Da', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (94, '', '', '$2y$10$2v/7CjB0TXlxAPmDY40iOuIxiHTjO6AcIpbJmyponOsDvbYBpKw.G', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (95, 'sss', 'sss', '$2y$10$2GqcuXG0ILkoznfOp1kby.Qbeal4GxPq2TjwlBnFIXTo41fNVtMG.', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (96, 'chinaisraedl', 'chinaisraedl', '$2y$10$pIc5Abzwi91kOcyqblBIdONtbKO20FIObel6i19mrXX9eSwbCRHPe', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (97, 'chinaisraelfghfg', 'chinaisraelfghfg', '$2y$10$0byJmX0Uhsvn3TDCQ9mkTO5CQ/k5FpJ.fwwB4.ff.awUbDnKSveZK', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (98, 'Israeli', 'Israeli', '$2y$10$LSTYcTBioAGQZmFOn/STrOJT7VrhNwnVCbG0Uz6YABW.auL/GWq.i', 'Male', '11-11-1990', '', 'us', 'il');
+INSERT INTO `users` VALUES (99, 'hello    world', 'hello    world', '$2y$10$IDybI7eNkGUU/Y8IIsvFhO0hn4/j2R0yZ6ITnyt7ygAZr7WvA6dvC', 'Male', '11-11-1990', '', 'il', 'ca');
+INSERT INTO `users` VALUES (100, 'chinaisraelsadasd', 'chinaisraelsadasd', '$2y$10$Rndn21M7CskXt7rmixSuD.PioT3lwRSTX2ep6vOmvUtfmYulT3uOC', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (101, 'chinaisraelasda', 'chinaisraelasda', '$2y$10$6dkqM9sjC6O3X9XU0IWFPenNJF3GYx/Lj1l8qpxyf9V6GUocmFlH2', 'Male', '11-11-1990', '', 'us', 'il');
+INSERT INTO `users` VALUES (102, 'jtyjfghfgh', 'jtyjfghfgh', '$2y$10$es5hJkcBLQy3lpsBg1etp.7chTNh8fArOBSj4OtNUTdxYOCqLHTRq', 'Male', '11-11-1990', '', 'us', 'il');
+INSERT INTO `users` VALUES (103, 'jkjhkjhk', 'jkjhkjhk', '$2y$10$aUIzesSqC4YWRYn7afM5JeGp.G0gCguWbAFmknBQjFVNd5kDduKCO', 'Male', '11-11-1990', '', 'il', 'dummy');
+INSERT INTO `users` VALUES (104, 'israel123', 'israel123', '$2y$10$F3GYIRtne/lLTkOrEmH2OO4j52.mVklyqWnYHZRDBS9T9S9XW.7b.', 'Male', '11-11-1990', '', 'us', 'il');
+INSERT INTO `users` VALUES (105, 'Admin', 'Admin', '$2y$10$rHsYWrfh61FQvdVrRFQqPO25BQc9QSyOIBhY1T.ItReklKENvUzYG', 'Male', '11-11-1990', '', 'us', 'il');
+INSERT INTO `users` VALUES (106, 'fdgregfdhb', 'fdgregfdhb', '$2y$10$gmeoGcpaF5X3Z.CenQoWIOZMR74QZfWVXnTQboz7gDS.vXGppI4pG', 'Male', '11-11-1990', '', 'us', 'il');
+INSERT INTO `users` VALUES (107, 'chinaisraelsdfgsdfg', 'chinaisraelsdfgsdfg', '$2y$10$8fpZAU7N.xKTEb7dclfUsuxeyUH9w.fzS5kPAyT.IdECck10frRUK', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (108, '4chanorg', '4chanorg', '$2y$10$iN9UGYWorcOB2PYhR2X9oeYmcIHtWBGgVCXqeWaB7.gOQPd1Plkki', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (110, 'Catgory.com', 'Catgory.com', '$2y$10$ibADS8jqPQEwEvhA3JpxTOpcLKZ9ct0Tr4LvsBZ.AplYaBwVObeQy', 'Male', '11-11-1990', '', 'us', 'il');
+INSERT INTO `users` VALUES (111, 'catgory1', 'catgory1', '$2y$10$6yh1dWtVNDrJ9EReZnHZhey.fbAfRsPfiOnDAqrRbrS1QsGEAn8z2', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (112, 'asdjkklasdfj', 'asdjkklasdfj', '$2y$10$VLd3f1wkTG6AYT0GREbWaOrwpbgrAVzu9sfYnzpT.TYED5zf7xeVC', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (113, 'ghjghjghj', 'ghjghjghj', '$2y$10$Ei9Oer3Xz.tJUXdU1UpZy.IW61c38V/zwCbiAjobFEnpryLzGbRcK', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (114, 'jkljlkjkl', 'jkljlkjkl', '$2y$10$sfzUhxmG9NBkUOZAMa5tteRDStLbG2villciY1OYZUL28JkIZXm72', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (115, 'catgory', 'catgory', '$2y$10$entkzcoj3ajD9KoPuTYKU.s4yvwmdy2.Wm5JClw9A/vlquqrsrvti', 'Male', '11-11-1990', '', 'us', 'il');
+INSERT INTO `users` VALUES (116, 'Ibjbjb', 'Ibjbjb', '$2y$10$Ov1/AEImyh.cf1FuKKxk6uAfi2/MJLTiosTAspZ7Y9oy8AzVMkq4.', 'Male', '11-11-1990', '', 'us', 'il');
+INSERT INTO `users` VALUES (117, 'qwerty', 'qwerty', '$2y$10$0X8UrpXFIlqRKrOEjldnreh6gXOk2LQfR9xcWTGZG7nbjUSNK6CUm', 'Male', '11-11-1990', '', 'us', 'il');
+INSERT INTO `users` VALUES (118, 'shlomi', 'shlomi', '$2y$10$FwCq2mBIdAVjdqUxXlKg3ur5z0L2u.pKT2fJrHOwnxOCrMM7Dt5oO', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (119, 'asafsdg', 'asafsdg', '$2y$10$aSO3wyNh6mQfIUezFticzOYyE3li6LF9gD5.sHrTpsAwV7qELy8jG', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (120, 'adasfas', 'adasfas', '$2y$10$b8K8ArTns7aGXzQ4ZABYI.ef4KITRK1r4.mHSbn1OYHAxHhOhhosO', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (121, 'asasdasd', 'asasdasd', '$2y$10$zxeLnd3k4i1esHAmcBxRaeBCNVj58NofabqyhNo5gggMZISMutdPK', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (122, 'jhkjhkkjhkjhk', 'jhkjhkkjhkjhk', '$2y$10$WQrPdlYTRqB09MmR9H2nyOfAAvWxrXO5P/RXrEEkayXPWHa7VgF0K', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (123, 'Yf9yc8y', 'Yf9yc8y', '$2y$10$HhOCleG1DDm9z2/74W0FB.2076m6T0zAm4mBfjpba4g93GxY6ulCS', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (124, 'Vhvhvvyvy', 'Vhvhvvyvy', '$2y$10$UTpEZoaeAW7a3Mux1DmJNOBlZhSTCiT7TCrA6fslQBHfPgNHKa34a', 'Male', '11-11-1990', '', 'il', 'dummy');
+INSERT INTO `users` VALUES (125, 'asjdlksajdkl', 'asjdlksajdkl', '$2y$10$GJ9xOovSek6u7q8DA1Tcxu5dXo0/BqdvO70oE9XHMV2EahOjiGqOq', 'Male', '11-11-1990', '', 'us', 'il');
+INSERT INTO `users` VALUES (128, 'Ididjdkjdjdii', 'Ididjdkjdjdii', '$2y$10$kK8uSEXr9f02YYfxei7DfucaeN8.GWjqPGdV.ecUxfF3ofIGNP8LK', 'Male', '11-11-1990', '', 'us', 'il');
+INSERT INTO `users` VALUES (129, 'sadsadfdsaf', 'sadsadfdsaf', '$2y$10$S4ps47peIyGdm9xsEZVNBuOdBlmbU3ucQb49r1.w77i2KcR/ttYD.', 'Male', '11-11-1990', '', 'in', 'ca');
+INSERT INTO `users` VALUES (130, 'yageldhn', 'yageldhn', '$2y$10$mYGutixyQ70nkSnvJbutu.Ckuh30cUSuLqZMMKvFICPUh4wKxyify', 'Male', '11-11-1990', '', 'il', 'us');
+INSERT INTO `users` VALUES (131, 'aadadasda', 'aadadasda', '$2y$10$U74psfE16stQWYoCj/7wV.TC5JGAB4cRdsw05UvpAgOR8W7lHmIb2', 'Male', '11-11-1990', '', 'us', 'il');
+INSERT INTO `users` VALUES (132, '212586', '212586', '$2y$10$KmtMOK1IPi9weiVHx7XB.OI4VtZ2I5UBoaOpOT89mQCx2ZvJoPNuC', 'Male', '11-11-1990', '', 'us', 'us');
+INSERT INTO `users` VALUES (133, 'adsasdasdasd', 'adsasdasdasd', '$2y$10$Y/BOa6DhI20cMi4YkJPHEuwFG.nkF804XZB0JIsIAQfd0.GdyQK/.', 'Male', '11-11-1990', '', 'us', 'il');
+INSERT INTO `users` VALUES (134, 'jhjghjg', 'jhjghjg', '$2y$10$8EBcOpf7PcyoL.xRC4ASAuKm2SWNzV4Axt/9DiwTpksBujSjwX1p6', 'Male', '11-11-1990', '', 'us', 'il');
+INSERT INTO `users` VALUES (135, 'asdasdasdasd', 'asdasdasdasd', '$2y$10$P1PuXkEAM9ZOZnV6CAobYOLM4XrxmelgHIVHyO1rDEygTq5NzrDM2', 'Male', '11-11-1990', '', 'us', 'il');
+INSERT INTO `users` VALUES (136, 'RomanAtwood', 'RomanAtwood', '$2y$10$sirccZ3JyIiqVEmOf88xbuxQ9Xuyz2NUYCKcmBGL2hf34tYITNZ.O', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (137, 'Karlabatusik', 'Karlabatusik', '$2y$10$biVT.4DAEzuXWMsH.54w8u9mwWI2oPcruj6l6aW96IqXZuH9197s6', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (138, 'helloaaasda', 'helloaaasda', '$2y$10$Mc1KKFQPQCGQQmcM7nm0fOZGPBAChdi95LQAoWycHM.pXJ6z4r85i', 'Male', '11-11-1990', '', 'us', 'il');
+INSERT INTO `users` VALUES (139, 'xzckjlxzkcj', 'xzckjlxzkcj', '$2y$10$9VYhc7HJJMq6WTh.Ex0LqutHRk6LkbFX2pMHLTYE.v9Pt9v63cK6W', 'Male', '11-11-1990', '', 'us', 'il');
+INSERT INTO `users` VALUES (140, 'jdsahkjsahdkj', 'jdsahkjsahdkj', '$2y$10$1VxeUEGmtjRPWtopZYql/enVLRMuNMDzM7XkyOd18fbbnGR6Sz48u', 'Male', '11-11-1990', '', 'us', 'il');
+INSERT INTO `users` VALUES (141, 'jgjhhj', 'jgjhhj', '$2y$10$ZPWqfnVX22rg9lWHGhWQ8.TaCw3Zv70tDF777UuWo91mrTkFIuZk6', 'Male', '11-11-1990', '', 'us', 'il');
+INSERT INTO `users` VALUES (142, 'chinaisraela', 'chinaisraela', '$2y$10$Wf5uYyn29aZFpZpzhPZ2felaz7h6bsJRvYEpeH6AGpO6t.xqHv1fG', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (143, 'bjghjgh', 'bjghjgh', '$2y$10$ESoyOdXzbAO/QWGlgT4PROwXQhDka6OF.03y98TMkP72jGG1.MV3.', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (144, 'chinaisraelasd', 'chinaisraelasd', '$2y$10$ClSy.G5qrP8f8pgrKhXClOYXaUu38bHeBuPwDktRmiXLGLP9nttcK', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (145, 'ljkjbk', 'ljkjbk', '$2y$10$Zz.JXh8XGNlpeMSl9WkMUuJOuV9sh8Pk1POUaU2OiFoYEjifGKG.a', 'Male', '11-11-1990', '', 'us', 'il');
+INSERT INTO `users` VALUES (146, 'chinaisraelasdasd', 'chinaisraelasdasd', '$2y$10$g14d0fQpHBnUzKwBjzDB5uULtyaMSWItLfoFE/WjTBgii5bCELiCi', 'Male', '11-11-1990', '', 'ca', 'fr');
+INSERT INTO `users` VALUES (147, 'sdaasdasdf', 'sdaasdasdf', '$2y$10$NrpBDvK6PpQfLlwMDRwDXu0XPp6mPoYMFVqCG5KtPxI7BCTIJ0Fbe', 'Male', '11-11-1990', '', 'il', 'dummy');
+INSERT INTO `users` VALUES (148, 'chinaasda', 'chinaasda', '$2y$10$R9FwlTRbPKGAnl1iuQmL7eYrlArPn8GHYLJZMdINCuYhWCo9b/arW', 'Male', '11-11-1990', '', 'us', 'dummy');
+INSERT INTO `users` VALUES (149, 'adascasba', 'adascasba', '$2y$10$MfB20JiwFz7P9reaSW.xDe.gQ2no/PAFAOrWWVckYUfiEyfKSG1Ty', 'Male', '11-11-1990', '', 'us', 'il');
+INSERT INTO `users` VALUES (150, 'chinaisraelbhhh', 'chinaisraelbhhh', '$2y$10$UI8d3Fw7GBpeXZgQiA0pi.fNeH6OipY27MPpy3nilVaX.kXvDlCZy', 'Male', '11-11-1990', '', 'us', 'dummy');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `users_following`
+-- 
+
+CREATE TABLE `users_following` (
+  `follow_id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) NOT NULL,
+  `follow_sub` varchar(30) NOT NULL,
+  `follow_user` varchar(20) NOT NULL,
+  PRIMARY KEY (`follow_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=714 DEFAULT CHARSET=latin1 AUTO_INCREMENT=714 ;
+
+-- 
+-- Dumping data for table `users_following`
+-- 
+
+INSERT INTO `users_following` VALUES (1, 26, 'tech', '');
+INSERT INTO `users_following` VALUES (4, 26, 'sport', '');
+INSERT INTO `users_following` VALUES (7, 26, 'funny', '');
+INSERT INTO `users_following` VALUES (9, 26, 'cute', '');
+INSERT INTO `users_following` VALUES (10, 26, 'apps', '');
+INSERT INTO `users_following` VALUES (11, 27, 'funny', '');
+INSERT INTO `users_following` VALUES (12, 27, 'finance', '');
+INSERT INTO `users_following` VALUES (14, 27, 'tech', '');
+INSERT INTO `users_following` VALUES (16, 27, 'gaming', '');
+INSERT INTO `users_following` VALUES (17, 27, 'sport', '');
+INSERT INTO `users_following` VALUES (24, 28, 'funny', '');
+INSERT INTO `users_following` VALUES (25, 28, 'buzz', '');
+INSERT INTO `users_following` VALUES (27, 28, 'gaming', '');
+INSERT INTO `users_following` VALUES (28, 28, 'books', '');
+INSERT INTO `users_following` VALUES (29, 28, 'apps', '');
+INSERT INTO `users_following` VALUES (30, 28, 'finance', '');
+INSERT INTO `users_following` VALUES (32, 25, 'comic', '');
+INSERT INTO `users_following` VALUES (33, 29, 'funny', '');
+INSERT INTO `users_following` VALUES (34, 29, 'tech', '');
+INSERT INTO `users_following` VALUES (35, 29, 'finance', '');
+INSERT INTO `users_following` VALUES (36, 29, 'cute', '');
+INSERT INTO `users_following` VALUES (37, 29, 'gaming', '');
+INSERT INTO `users_following` VALUES (38, 29, 'design', '');
+INSERT INTO `users_following` VALUES (39, 29, 'food', '');
+INSERT INTO `users_following` VALUES (41, 32, 'science', '');
+INSERT INTO `users_following` VALUES (42, 32, 'gaming', '');
+INSERT INTO `users_following` VALUES (43, 25, 'tech', '');
+INSERT INTO `users_following` VALUES (44, 25, 'finance', '');
+INSERT INTO `users_following` VALUES (45, 25, 'sport', '');
+INSERT INTO `users_following` VALUES (46, 25, 'science', '');
+INSERT INTO `users_following` VALUES (47, 25, 'books', '');
+INSERT INTO `users_following` VALUES (48, 33, 'tech', '');
+INSERT INTO `users_following` VALUES (49, 33, 'buzz', '');
+INSERT INTO `users_following` VALUES (50, 33, 'finance', '');
+INSERT INTO `users_following` VALUES (51, 33, 'sport', '');
+INSERT INTO `users_following` VALUES (52, 33, 'cute', '');
+INSERT INTO `users_following` VALUES (53, 34, 'tech', '');
+INSERT INTO `users_following` VALUES (54, 34, 'buzz', '');
+INSERT INTO `users_following` VALUES (55, 34, 'finance', '');
+INSERT INTO `users_following` VALUES (56, 34, 'sport', '');
+INSERT INTO `users_following` VALUES (57, 34, 'cute', '');
+INSERT INTO `users_following` VALUES (58, 34, 'science', '');
+INSERT INTO `users_following` VALUES (59, 34, 'fashion', '');
+INSERT INTO `users_following` VALUES (60, 34, 'apps', '');
+INSERT INTO `users_following` VALUES (61, 25, 'buzz', '');
+INSERT INTO `users_following` VALUES (62, 25, 'cute', '');
+INSERT INTO `users_following` VALUES (63, 35, 'funny', '');
+INSERT INTO `users_following` VALUES (64, 35, 'cute', '');
+INSERT INTO `users_following` VALUES (65, 35, 'fashion', '');
+INSERT INTO `users_following` VALUES (66, 36, 'funny', '');
+INSERT INTO `users_following` VALUES (67, 36, 'tech', '');
+INSERT INTO `users_following` VALUES (68, 36, 'buzz', '');
+INSERT INTO `users_following` VALUES (69, 36, 'finance', '');
+INSERT INTO `users_following` VALUES (70, 36, 'sport', '');
+INSERT INTO `users_following` VALUES (71, 36, 'cute', '');
+INSERT INTO `users_following` VALUES (72, 38, 'funny', '');
+INSERT INTO `users_following` VALUES (73, 38, 'tech', '');
+INSERT INTO `users_following` VALUES (74, 38, 'buzz', '');
+INSERT INTO `users_following` VALUES (75, 38, 'finance', '');
+INSERT INTO `users_following` VALUES (76, 38, 'cute', '');
+INSERT INTO `users_following` VALUES (77, 25, 'gaming', '');
+INSERT INTO `users_following` VALUES (79, 25, 'fashion', '');
+INSERT INTO `users_following` VALUES (80, 25, 'food', '');
+INSERT INTO `users_following` VALUES (81, 25, 'travel', '');
+INSERT INTO `users_following` VALUES (82, 39, 'funny', '');
+INSERT INTO `users_following` VALUES (83, 40, 'funny', '');
+INSERT INTO `users_following` VALUES (84, 40, 'tech', '');
+INSERT INTO `users_following` VALUES (85, 40, 'books', '');
+INSERT INTO `users_following` VALUES (86, 40, 'design', '');
+INSERT INTO `users_following` VALUES (87, 41, 'apps', '');
+INSERT INTO `users_following` VALUES (88, 41, 'travel', '');
+INSERT INTO `users_following` VALUES (89, 41, 'funny', '');
+INSERT INTO `users_following` VALUES (90, 41, 'tech', '');
+INSERT INTO `users_following` VALUES (91, 41, 'buzz', '');
+INSERT INTO `users_following` VALUES (92, 41, 'finance', '');
+INSERT INTO `users_following` VALUES (93, 41, 'sport', '');
+INSERT INTO `users_following` VALUES (94, 41, 'cute', '');
+INSERT INTO `users_following` VALUES (95, 41, 'science', '');
+INSERT INTO `users_following` VALUES (96, 41, 'gaming', '');
+INSERT INTO `users_following` VALUES (97, 41, 'books', '');
+INSERT INTO `users_following` VALUES (98, 41, 'design', '');
+INSERT INTO `users_following` VALUES (99, 41, 'fashion', '');
+INSERT INTO `users_following` VALUES (100, 41, 'food', '');
+INSERT INTO `users_following` VALUES (101, 41, 'comic', '');
+INSERT INTO `users_following` VALUES (102, 42, 'funny', '');
+INSERT INTO `users_following` VALUES (103, 42, 'tech', '');
+INSERT INTO `users_following` VALUES (104, 42, 'buzz', '');
+INSERT INTO `users_following` VALUES (105, 42, 'finance', '');
+INSERT INTO `users_following` VALUES (106, 42, 'sport', '');
+INSERT INTO `users_following` VALUES (107, 42, 'cute', '');
+INSERT INTO `users_following` VALUES (108, 42, 'science', '');
+INSERT INTO `users_following` VALUES (109, 42, 'gaming', '');
+INSERT INTO `users_following` VALUES (110, 42, 'books', '');
+INSERT INTO `users_following` VALUES (111, 42, 'design', '');
+INSERT INTO `users_following` VALUES (112, 42, 'fashion', '');
+INSERT INTO `users_following` VALUES (113, 42, 'apps', '');
+INSERT INTO `users_following` VALUES (114, 42, 'food', '');
+INSERT INTO `users_following` VALUES (115, 42, 'comic', '');
+INSERT INTO `users_following` VALUES (116, 42, 'travel', '');
+INSERT INTO `users_following` VALUES (117, 43, 'funny', '');
+INSERT INTO `users_following` VALUES (118, 43, 'tech', '');
+INSERT INTO `users_following` VALUES (119, 43, 'buzz', '');
+INSERT INTO `users_following` VALUES (120, 43, 'finance', '');
+INSERT INTO `users_following` VALUES (121, 43, 'sport', '');
+INSERT INTO `users_following` VALUES (122, 43, 'cute', '');
+INSERT INTO `users_following` VALUES (123, 43, 'science', '');
+INSERT INTO `users_following` VALUES (124, 43, 'gaming', '');
+INSERT INTO `users_following` VALUES (125, 43, 'books', '');
+INSERT INTO `users_following` VALUES (126, 43, 'design', '');
+INSERT INTO `users_following` VALUES (128, 25, 'geeky', '');
+INSERT INTO `users_following` VALUES (129, 45, 'funny', '');
+INSERT INTO `users_following` VALUES (130, 45, 'tech', '');
+INSERT INTO `users_following` VALUES (131, 45, 'buzz', '');
+INSERT INTO `users_following` VALUES (132, 45, 'sport', '');
+INSERT INTO `users_following` VALUES (133, 45, 'science', '');
+INSERT INTO `users_following` VALUES (134, 45, 'art', '');
+INSERT INTO `users_following` VALUES (135, 45, 'fashion', '');
+INSERT INTO `users_following` VALUES (136, 45, 'food', '');
+INSERT INTO `users_following` VALUES (137, 45, 'comic', '');
+INSERT INTO `users_following` VALUES (138, 45, 'travel', '');
+INSERT INTO `users_following` VALUES (139, 45, 'geeky', '');
+INSERT INTO `users_following` VALUES (140, 46, 'funny', '');
+INSERT INTO `users_following` VALUES (141, 46, 'tech', '');
+INSERT INTO `users_following` VALUES (142, 46, 'geeky', '');
+INSERT INTO `users_following` VALUES (143, 46, 'buzz', '');
+INSERT INTO `users_following` VALUES (144, 46, 'sport', '');
+INSERT INTO `users_following` VALUES (145, 46, 'gaming', '');
+INSERT INTO `users_following` VALUES (146, 46, 'books', '');
+INSERT INTO `users_following` VALUES (147, 25, 'music', '');
+INSERT INTO `users_following` VALUES (148, 46, 'cute', '');
+INSERT INTO `users_following` VALUES (149, 46, 'music', '');
+INSERT INTO `users_following` VALUES (150, 47, 'tech', '');
+INSERT INTO `users_following` VALUES (151, 47, 'buzz', '');
+INSERT INTO `users_following` VALUES (152, 47, 'sport', '');
+INSERT INTO `users_following` VALUES (153, 47, 'science', '');
+INSERT INTO `users_following` VALUES (154, 47, 'books', '');
+INSERT INTO `users_following` VALUES (155, 47, 'apps', '');
+INSERT INTO `users_following` VALUES (156, 48, 'funny', '');
+INSERT INTO `users_following` VALUES (157, 48, 'tech', '');
+INSERT INTO `users_following` VALUES (158, 48, 'buzz', '');
+INSERT INTO `users_following` VALUES (159, 48, 'cute', '');
+INSERT INTO `users_following` VALUES (160, 48, 'gaming', '');
+INSERT INTO `users_following` VALUES (161, 48, 'art', '');
+INSERT INTO `users_following` VALUES (162, 48, 'apps', '');
+INSERT INTO `users_following` VALUES (163, 48, 'food', '');
+INSERT INTO `users_following` VALUES (164, 48, 'geeky', '');
+INSERT INTO `users_following` VALUES (165, 25, 'funny', '');
+INSERT INTO `users_following` VALUES (166, 49, 'funny', '');
+INSERT INTO `users_following` VALUES (167, 50, 'apps', '');
+INSERT INTO `users_following` VALUES (168, 50, 'food', '');
+INSERT INTO `users_following` VALUES (169, 50, 'comic', '');
+INSERT INTO `users_following` VALUES (170, 53, 'funny', '');
+INSERT INTO `users_following` VALUES (171, 53, 'tech', '');
+INSERT INTO `users_following` VALUES (172, 53, 'buzz', '');
+INSERT INTO `users_following` VALUES (173, 53, 'finance', '');
+INSERT INTO `users_following` VALUES (174, 53, 'sport', '');
+INSERT INTO `users_following` VALUES (175, 53, 'cute', '');
+INSERT INTO `users_following` VALUES (176, 53, 'science', '');
+INSERT INTO `users_following` VALUES (177, 53, 'gaming', '');
+INSERT INTO `users_following` VALUES (178, 53, 'books', '');
+INSERT INTO `users_following` VALUES (179, 53, 'art', '');
+INSERT INTO `users_following` VALUES (180, 53, 'fashion', '');
+INSERT INTO `users_following` VALUES (181, 53, 'apps', '');
+INSERT INTO `users_following` VALUES (182, 53, 'food', '');
+INSERT INTO `users_following` VALUES (183, 53, 'comic', '');
+INSERT INTO `users_following` VALUES (184, 53, 'travel', '');
+INSERT INTO `users_following` VALUES (185, 53, 'geeky', '');
+INSERT INTO `users_following` VALUES (186, 53, 'music', '');
+INSERT INTO `users_following` VALUES (187, 53, 'design', '');
+INSERT INTO `users_following` VALUES (188, 54, 'tech', '');
+INSERT INTO `users_following` VALUES (189, 54, 'sport', '');
+INSERT INTO `users_following` VALUES (190, 54, 'books', '');
+INSERT INTO `users_following` VALUES (191, 54, 'fashion', '');
+INSERT INTO `users_following` VALUES (192, 54, 'food', '');
+INSERT INTO `users_following` VALUES (193, 54, 'travel', '');
+INSERT INTO `users_following` VALUES (194, 55, 'buzz', '');
+INSERT INTO `users_following` VALUES (195, 55, 'finance', '');
+INSERT INTO `users_following` VALUES (196, 56, 'funny', '');
+INSERT INTO `users_following` VALUES (197, 56, 'art', '');
+INSERT INTO `users_following` VALUES (198, 57, 'funny', '');
+INSERT INTO `users_following` VALUES (199, 57, 'tech', '');
+INSERT INTO `users_following` VALUES (200, 57, 'buzz', '');
+INSERT INTO `users_following` VALUES (201, 57, 'finance', '');
+INSERT INTO `users_following` VALUES (202, 57, 'sport', '');
+INSERT INTO `users_following` VALUES (203, 58, 'cute', '');
+INSERT INTO `users_following` VALUES (204, 58, 'science', '');
+INSERT INTO `users_following` VALUES (205, 59, 'funny', '');
+INSERT INTO `users_following` VALUES (206, 59, 'buzz', '');
+INSERT INTO `users_following` VALUES (207, 60, 'funny', '');
+INSERT INTO `users_following` VALUES (208, 60, 'tech', '');
+INSERT INTO `users_following` VALUES (209, 61, 'funny', '');
+INSERT INTO `users_following` VALUES (210, 61, 'tech', '');
+INSERT INTO `users_following` VALUES (211, 61, 'buzz', '');
+INSERT INTO `users_following` VALUES (212, 61, 'finance', '');
+INSERT INTO `users_following` VALUES (213, 61, 'sport', '');
+INSERT INTO `users_following` VALUES (214, 61, 'geeky', '');
+INSERT INTO `users_following` VALUES (215, 61, 'science', '');
+INSERT INTO `users_following` VALUES (216, 62, 'funny', '');
+INSERT INTO `users_following` VALUES (217, 62, 'tech', '');
+INSERT INTO `users_following` VALUES (218, 62, 'buzz', '');
+INSERT INTO `users_following` VALUES (219, 62, 'finance', '');
+INSERT INTO `users_following` VALUES (220, 62, 'sport', '');
+INSERT INTO `users_following` VALUES (221, 62, 'cute', '');
+INSERT INTO `users_following` VALUES (222, 62, 'science', '');
+INSERT INTO `users_following` VALUES (223, 62, 'geeky', '');
+INSERT INTO `users_following` VALUES (224, 62, 'music', '');
+INSERT INTO `users_following` VALUES (225, 62, 'gaming', '');
+INSERT INTO `users_following` VALUES (226, 62, 'books', '');
+INSERT INTO `users_following` VALUES (227, 62, 'art', '');
+INSERT INTO `users_following` VALUES (228, 63, 'funny', '');
+INSERT INTO `users_following` VALUES (229, 64, 'funny', '');
+INSERT INTO `users_following` VALUES (230, 65, 'finance', '');
+INSERT INTO `users_following` VALUES (231, 65, 'sport', '');
+INSERT INTO `users_following` VALUES (232, 65, 'cute', '');
+INSERT INTO `users_following` VALUES (233, 65, 'science', '');
+INSERT INTO `users_following` VALUES (234, 65, 'gaming', '');
+INSERT INTO `users_following` VALUES (235, 65, 'art', '');
+INSERT INTO `users_following` VALUES (236, 65, 'apps', '');
+INSERT INTO `users_following` VALUES (237, 78, 'funny', '');
+INSERT INTO `users_following` VALUES (238, 78, 'tech', '');
+INSERT INTO `users_following` VALUES (239, 78, 'buzz', '');
+INSERT INTO `users_following` VALUES (240, 84, 'funny', '');
+INSERT INTO `users_following` VALUES (241, 84, 'tech', '');
+INSERT INTO `users_following` VALUES (242, 84, 'buzz', '');
+INSERT INTO `users_following` VALUES (243, 86, 'funny', '');
+INSERT INTO `users_following` VALUES (244, 86, 'tech', '');
+INSERT INTO `users_following` VALUES (245, 86, 'buzz', '');
+INSERT INTO `users_following` VALUES (246, 86, 'finance', '');
+INSERT INTO `users_following` VALUES (247, 86, 'sport', '');
+INSERT INTO `users_following` VALUES (248, 86, 'cute', '');
+INSERT INTO `users_following` VALUES (249, 86, 'science', '');
+INSERT INTO `users_following` VALUES (250, 86, 'gaming', '');
+INSERT INTO `users_following` VALUES (251, 86, 'books', '');
+INSERT INTO `users_following` VALUES (252, 86, 'art', '');
+INSERT INTO `users_following` VALUES (253, 87, 'funny', '');
+INSERT INTO `users_following` VALUES (254, 87, 'tech', '');
+INSERT INTO `users_following` VALUES (255, 87, 'buzz', '');
+INSERT INTO `users_following` VALUES (256, 87, 'finance', '');
+INSERT INTO `users_following` VALUES (257, 87, 'sport', '');
+INSERT INTO `users_following` VALUES (258, 87, 'cute', '');
+INSERT INTO `users_following` VALUES (259, 87, 'science', '');
+INSERT INTO `users_following` VALUES (260, 87, 'gaming', '');
+INSERT INTO `users_following` VALUES (261, 87, 'books', '');
+INSERT INTO `users_following` VALUES (262, 87, 'art', '');
+INSERT INTO `users_following` VALUES (263, 87, 'fashion', '');
+INSERT INTO `users_following` VALUES (264, 87, 'apps', '');
+INSERT INTO `users_following` VALUES (265, 87, 'food', '');
+INSERT INTO `users_following` VALUES (266, 87, 'comic', '');
+INSERT INTO `users_following` VALUES (267, 87, 'travel', '');
+INSERT INTO `users_following` VALUES (268, 87, 'geeky', '');
+INSERT INTO `users_following` VALUES (269, 87, 'music', '');
+INSERT INTO `users_following` VALUES (270, 87, 'design', '');
+INSERT INTO `users_following` VALUES (271, 88, 'food', '');
+INSERT INTO `users_following` VALUES (272, 96, 'comic', '');
+INSERT INTO `users_following` VALUES (273, 97, 'apps', '');
+INSERT INTO `users_following` VALUES (274, 98, 'funny', '');
+INSERT INTO `users_following` VALUES (275, 98, 'tech', '');
+INSERT INTO `users_following` VALUES (276, 98, 'buzz', '');
+INSERT INTO `users_following` VALUES (277, 98, 'finance', '');
+INSERT INTO `users_following` VALUES (278, 98, 'sport', '');
+INSERT INTO `users_following` VALUES (279, 98, 'cute', '');
+INSERT INTO `users_following` VALUES (280, 98, 'science', '');
+INSERT INTO `users_following` VALUES (281, 98, 'art', '');
+INSERT INTO `users_following` VALUES (282, 99, 'funny', '');
+INSERT INTO `users_following` VALUES (283, 99, 'tech', '');
+INSERT INTO `users_following` VALUES (284, 99, 'buzz', '');
+INSERT INTO `users_following` VALUES (285, 99, 'finance', '');
+INSERT INTO `users_following` VALUES (286, 99, 'sport', '');
+INSERT INTO `users_following` VALUES (287, 99, 'cute', '');
+INSERT INTO `users_following` VALUES (288, 99, 'science', '');
+INSERT INTO `users_following` VALUES (289, 99, 'gaming', '');
+INSERT INTO `users_following` VALUES (290, 99, 'books', '');
+INSERT INTO `users_following` VALUES (291, 99, 'art', '');
+INSERT INTO `users_following` VALUES (292, 99, 'fashion', '');
+INSERT INTO `users_following` VALUES (293, 99, 'apps', '');
+INSERT INTO `users_following` VALUES (294, 99, 'food', '');
+INSERT INTO `users_following` VALUES (295, 101, 'music', '');
+INSERT INTO `users_following` VALUES (296, 102, 'funny', '');
+INSERT INTO `users_following` VALUES (297, 102, 'tech', '');
+INSERT INTO `users_following` VALUES (298, 102, 'buzz', '');
+INSERT INTO `users_following` VALUES (299, 102, 'finance', '');
+INSERT INTO `users_following` VALUES (300, 102, 'sport', '');
+INSERT INTO `users_following` VALUES (301, 102, 'music', '');
+INSERT INTO `users_following` VALUES (302, 103, 'funny', '');
+INSERT INTO `users_following` VALUES (303, 104, 'funny', '');
+INSERT INTO `users_following` VALUES (304, 104, 'tech', '');
+INSERT INTO `users_following` VALUES (305, 104, 'buzz', '');
+INSERT INTO `users_following` VALUES (306, 104, 'finance', '');
+INSERT INTO `users_following` VALUES (307, 104, 'sport', '');
+INSERT INTO `users_following` VALUES (308, 104, 'cute', '');
+INSERT INTO `users_following` VALUES (309, 104, 'science', '');
+INSERT INTO `users_following` VALUES (310, 104, 'gaming', '');
+INSERT INTO `users_following` VALUES (311, 105, 'funny', '');
+INSERT INTO `users_following` VALUES (312, 105, 'tech', '');
+INSERT INTO `users_following` VALUES (313, 105, 'buzz', '');
+INSERT INTO `users_following` VALUES (314, 105, 'finance', '');
+INSERT INTO `users_following` VALUES (315, 105, 'sport', '');
+INSERT INTO `users_following` VALUES (316, 105, 'cute', '');
+INSERT INTO `users_following` VALUES (317, 105, 'science', '');
+INSERT INTO `users_following` VALUES (318, 105, 'gaming', '');
+INSERT INTO `users_following` VALUES (319, 105, 'books', '');
+INSERT INTO `users_following` VALUES (320, 105, 'art', '');
+INSERT INTO `users_following` VALUES (321, 105, 'fashion', '');
+INSERT INTO `users_following` VALUES (322, 105, 'apps', '');
+INSERT INTO `users_following` VALUES (323, 105, 'food', '');
+INSERT INTO `users_following` VALUES (324, 105, 'comic', '');
+INSERT INTO `users_following` VALUES (325, 105, 'travel', '');
+INSERT INTO `users_following` VALUES (326, 105, 'geeky', '');
+INSERT INTO `users_following` VALUES (327, 105, 'music', '');
+INSERT INTO `users_following` VALUES (328, 105, 'design', '');
+INSERT INTO `users_following` VALUES (329, 106, 'funny', '');
+INSERT INTO `users_following` VALUES (330, 106, 'tech', '');
+INSERT INTO `users_following` VALUES (331, 106, 'buzz', '');
+INSERT INTO `users_following` VALUES (332, 106, 'finance', '');
+INSERT INTO `users_following` VALUES (333, 106, 'sport', '');
+INSERT INTO `users_following` VALUES (334, 106, 'cute', '');
+INSERT INTO `users_following` VALUES (335, 106, 'science', '');
+INSERT INTO `users_following` VALUES (336, 106, 'gaming', '');
+INSERT INTO `users_following` VALUES (337, 106, 'books', '');
+INSERT INTO `users_following` VALUES (338, 106, 'art', '');
+INSERT INTO `users_following` VALUES (339, 107, 'funny', '');
+INSERT INTO `users_following` VALUES (340, 107, 'tech', '');
+INSERT INTO `users_following` VALUES (341, 107, 'buzz', '');
+INSERT INTO `users_following` VALUES (342, 107, 'finance', '');
+INSERT INTO `users_following` VALUES (343, 107, 'sport', '');
+INSERT INTO `users_following` VALUES (344, 107, 'cute', '');
+INSERT INTO `users_following` VALUES (345, 107, 'random', '');
+INSERT INTO `users_following` VALUES (346, 108, 'funny', '');
+INSERT INTO `users_following` VALUES (347, 108, 'tech', '');
+INSERT INTO `users_following` VALUES (348, 108, 'buzz', '');
+INSERT INTO `users_following` VALUES (349, 108, 'finance', '');
+INSERT INTO `users_following` VALUES (350, 108, 'sport', '');
+INSERT INTO `users_following` VALUES (351, 108, 'cute', '');
+INSERT INTO `users_following` VALUES (352, 108, 'science', '');
+INSERT INTO `users_following` VALUES (353, 108, 'gaming', '');
+INSERT INTO `users_following` VALUES (354, 108, 'books', '');
+INSERT INTO `users_following` VALUES (355, 108, 'art', '');
+INSERT INTO `users_following` VALUES (356, 108, 'fashion', '');
+INSERT INTO `users_following` VALUES (357, 108, 'apps', '');
+INSERT INTO `users_following` VALUES (358, 108, 'food', '');
+INSERT INTO `users_following` VALUES (359, 108, 'comic', '');
+INSERT INTO `users_following` VALUES (360, 108, 'travel', '');
+INSERT INTO `users_following` VALUES (361, 108, 'geeky', '');
+INSERT INTO `users_following` VALUES (362, 108, 'music', '');
+INSERT INTO `users_following` VALUES (363, 108, 'design', '');
+INSERT INTO `users_following` VALUES (364, 108, 'random', '');
+INSERT INTO `users_following` VALUES (365, 109, 'funny', '');
+INSERT INTO `users_following` VALUES (366, 109, 'tech', '');
+INSERT INTO `users_following` VALUES (367, 109, 'buzz', '');
+INSERT INTO `users_following` VALUES (368, 109, 'finance', '');
+INSERT INTO `users_following` VALUES (369, 109, 'sport', '');
+INSERT INTO `users_following` VALUES (370, 109, 'cute', '');
+INSERT INTO `users_following` VALUES (371, 109, 'science', '');
+INSERT INTO `users_following` VALUES (372, 109, 'gaming', '');
+INSERT INTO `users_following` VALUES (373, 109, 'books', '');
+INSERT INTO `users_following` VALUES (374, 109, 'art', '');
+INSERT INTO `users_following` VALUES (375, 109, 'fashion', '');
+INSERT INTO `users_following` VALUES (376, 109, 'apps', '');
+INSERT INTO `users_following` VALUES (377, 109, 'food', '');
+INSERT INTO `users_following` VALUES (378, 109, 'comic', '');
+INSERT INTO `users_following` VALUES (379, 109, 'travel', '');
+INSERT INTO `users_following` VALUES (380, 109, 'geeky', '');
+INSERT INTO `users_following` VALUES (381, 109, 'music', '');
+INSERT INTO `users_following` VALUES (382, 109, 'design', '');
+INSERT INTO `users_following` VALUES (383, 109, 'random', '');
+INSERT INTO `users_following` VALUES (384, 110, 'funny', '');
+INSERT INTO `users_following` VALUES (385, 111, 'funny', '');
+INSERT INTO `users_following` VALUES (386, 111, 'tech', '');
+INSERT INTO `users_following` VALUES (387, 111, 'buzz', '');
+INSERT INTO `users_following` VALUES (388, 111, 'finance', '');
+INSERT INTO `users_following` VALUES (389, 111, 'sport', '');
+INSERT INTO `users_following` VALUES (390, 112, 'funny', '');
+INSERT INTO `users_following` VALUES (391, 112, 'tech', '');
+INSERT INTO `users_following` VALUES (392, 112, 'buzz', '');
+INSERT INTO `users_following` VALUES (393, 113, 'funny', '');
+INSERT INTO `users_following` VALUES (394, 114, 'funny', '');
+INSERT INTO `users_following` VALUES (402, 115, 'gaming', '');
+INSERT INTO `users_following` VALUES (404, 115, 'art', '');
+INSERT INTO `users_following` VALUES (406, 115, 'apps', '');
+INSERT INTO `users_following` VALUES (408, 115, 'comic', '');
+INSERT INTO `users_following` VALUES (412, 115, 'design', '');
+INSERT INTO `users_following` VALUES (414, 116, 'funny', '');
+INSERT INTO `users_following` VALUES (415, 116, 'buzz', '');
+INSERT INTO `users_following` VALUES (416, 116, 'sport', '');
+INSERT INTO `users_following` VALUES (417, 116, 'science', '');
+INSERT INTO `users_following` VALUES (418, 116, 'gaming', '');
+INSERT INTO `users_following` VALUES (419, 116, 'tech', '');
+INSERT INTO `users_following` VALUES (420, 116, 'finance', '');
+INSERT INTO `users_following` VALUES (421, 116, 'cute', '');
+INSERT INTO `users_following` VALUES (422, 116, 'books', '');
+INSERT INTO `users_following` VALUES (423, 116, 'art', '');
+INSERT INTO `users_following` VALUES (424, 116, 'fashion', '');
+INSERT INTO `users_following` VALUES (425, 116, 'apps', '');
+INSERT INTO `users_following` VALUES (426, 116, 'food', '');
+INSERT INTO `users_following` VALUES (427, 116, 'comic', '');
+INSERT INTO `users_following` VALUES (428, 116, 'travel', '');
+INSERT INTO `users_following` VALUES (429, 116, 'geeky', '');
+INSERT INTO `users_following` VALUES (430, 116, 'music', '');
+INSERT INTO `users_following` VALUES (431, 116, 'design', '');
+INSERT INTO `users_following` VALUES (432, 116, 'random', '');
+INSERT INTO `users_following` VALUES (434, 115, 'science', '');
+INSERT INTO `users_following` VALUES (435, 115, 'books', '');
+INSERT INTO `users_following` VALUES (436, 115, 'food', '');
+INSERT INTO `users_following` VALUES (437, 115, 'travel', '');
+INSERT INTO `users_following` VALUES (438, 115, 'geeky', '');
+INSERT INTO `users_following` VALUES (439, 115, 'random', '');
+INSERT INTO `users_following` VALUES (440, 115, 'television', '');
+INSERT INTO `users_following` VALUES (441, 117, 'funny', '');
+INSERT INTO `users_following` VALUES (442, 118, 'funny', '');
+INSERT INTO `users_following` VALUES (443, 115, 'health', '');
+INSERT INTO `users_following` VALUES (444, 115, 'music', '');
+INSERT INTO `users_following` VALUES (446, 115, 'buzz', '');
+INSERT INTO `users_following` VALUES (448, 115, 'funny', '');
+INSERT INTO `users_following` VALUES (450, 119, 'funny', '');
+INSERT INTO `users_following` VALUES (451, 119, 'tech', '');
+INSERT INTO `users_following` VALUES (452, 119, 'buzz', '');
+INSERT INTO `users_following` VALUES (453, 119, 'finance', '');
+INSERT INTO `users_following` VALUES (454, 119, 'sport', '');
+INSERT INTO `users_following` VALUES (455, 119, 'cute', '');
+INSERT INTO `users_following` VALUES (456, 119, 'gaming', '');
+INSERT INTO `users_following` VALUES (457, 119, 'art', '');
+INSERT INTO `users_following` VALUES (458, 119, 'apps', '');
+INSERT INTO `users_following` VALUES (459, 119, 'comic', '');
+INSERT INTO `users_following` VALUES (460, 119, 'science', '');
+INSERT INTO `users_following` VALUES (461, 119, 'books', '');
+INSERT INTO `users_following` VALUES (462, 119, 'fashion', '');
+INSERT INTO `users_following` VALUES (463, 119, 'food', '');
+INSERT INTO `users_following` VALUES (464, 119, 'travel', '');
+INSERT INTO `users_following` VALUES (465, 119, 'geeky', '');
+INSERT INTO `users_following` VALUES (466, 119, 'music', '');
+INSERT INTO `users_following` VALUES (467, 119, 'design', '');
+INSERT INTO `users_following` VALUES (468, 119, 'random', '');
+INSERT INTO `users_following` VALUES (469, 119, 'television', '');
+INSERT INTO `users_following` VALUES (470, 119, 'health', '');
+INSERT INTO `users_following` VALUES (471, 122, 'tech', '');
+INSERT INTO `users_following` VALUES (472, 122, 'finance', '');
+INSERT INTO `users_following` VALUES (473, 122, 'cute', '');
+INSERT INTO `users_following` VALUES (474, 122, 'gaming', '');
+INSERT INTO `users_following` VALUES (475, 122, 'art', '');
+INSERT INTO `users_following` VALUES (476, 122, 'apps', '');
+INSERT INTO `users_following` VALUES (477, 123, 'funny', '');
+INSERT INTO `users_following` VALUES (478, 123, 'tech', '');
+INSERT INTO `users_following` VALUES (479, 123, 'buzz', '');
+INSERT INTO `users_following` VALUES (480, 123, 'finance', '');
+INSERT INTO `users_following` VALUES (481, 123, 'sport', '');
+INSERT INTO `users_following` VALUES (482, 123, 'cute', '');
+INSERT INTO `users_following` VALUES (483, 123, 'science', '');
+INSERT INTO `users_following` VALUES (484, 123, 'gaming', '');
+INSERT INTO `users_following` VALUES (485, 123, 'books', '');
+INSERT INTO `users_following` VALUES (487, 115, 'sport', '');
+INSERT INTO `users_following` VALUES (488, 115, 'cute', '');
+INSERT INTO `users_following` VALUES (489, 115, 'fashion', '');
+INSERT INTO `users_following` VALUES (490, 124, 'funny', '');
+INSERT INTO `users_following` VALUES (491, 124, 'tech', '');
+INSERT INTO `users_following` VALUES (492, 124, 'buzz', '');
+INSERT INTO `users_following` VALUES (493, 124, 'finance', '');
+INSERT INTO `users_following` VALUES (494, 124, 'sport', '');
+INSERT INTO `users_following` VALUES (495, 124, 'cute', '');
+INSERT INTO `users_following` VALUES (496, 124, 'science', '');
+INSERT INTO `users_following` VALUES (497, 124, 'gaming', '');
+INSERT INTO `users_following` VALUES (498, 124, 'books', '');
+INSERT INTO `users_following` VALUES (499, 124, 'art', '');
+INSERT INTO `users_following` VALUES (500, 124, 'fashion', '');
+INSERT INTO `users_following` VALUES (501, 124, 'apps', '');
+INSERT INTO `users_following` VALUES (502, 124, 'food', '');
+INSERT INTO `users_following` VALUES (503, 124, 'comic', '');
+INSERT INTO `users_following` VALUES (504, 124, 'travel', '');
+INSERT INTO `users_following` VALUES (505, 124, 'geeky', '');
+INSERT INTO `users_following` VALUES (506, 124, 'music', '');
+INSERT INTO `users_following` VALUES (507, 124, 'design', '');
+INSERT INTO `users_following` VALUES (508, 124, 'random', '');
+INSERT INTO `users_following` VALUES (509, 124, 'television', '');
+INSERT INTO `users_following` VALUES (510, 124, 'health', '');
+INSERT INTO `users_following` VALUES (512, 125, 'tech', '');
+INSERT INTO `users_following` VALUES (514, 125, 'finance', '');
+INSERT INTO `users_following` VALUES (516, 125, 'cute', '');
+INSERT INTO `users_following` VALUES (517, 125, 'gaming', '');
+INSERT INTO `users_following` VALUES (518, 125, 'art', '');
+INSERT INTO `users_following` VALUES (519, 115, 'tech', '');
+INSERT INTO `users_following` VALUES (520, 115, 'finance', '');
+INSERT INTO `users_following` VALUES (521, 128, 'funny', '');
+INSERT INTO `users_following` VALUES (522, 128, 'tech', '');
+INSERT INTO `users_following` VALUES (523, 128, 'buzz', '');
+INSERT INTO `users_following` VALUES (524, 128, 'sport', '');
+INSERT INTO `users_following` VALUES (525, 128, 'cute', '');
+INSERT INTO `users_following` VALUES (526, 128, 'gaming', '');
+INSERT INTO `users_following` VALUES (527, 128, 'books', '');
+INSERT INTO `users_following` VALUES (528, 128, 'comic', '');
+INSERT INTO `users_following` VALUES (529, 128, 'travel', '');
+INSERT INTO `users_following` VALUES (530, 128, 'geeky', '');
+INSERT INTO `users_following` VALUES (531, 128, 'random', '');
+INSERT INTO `users_following` VALUES (532, 128, 'television', '');
+INSERT INTO `users_following` VALUES (533, 129, 'tech', '');
+INSERT INTO `users_following` VALUES (534, 129, 'cute', '');
+INSERT INTO `users_following` VALUES (535, 129, 'gaming', '');
+INSERT INTO `users_following` VALUES (536, 130, 'funny', '');
+INSERT INTO `users_following` VALUES (537, 130, 'tech', '');
+INSERT INTO `users_following` VALUES (538, 130, 'buzz', '');
+INSERT INTO `users_following` VALUES (539, 130, 'finance', '');
+INSERT INTO `users_following` VALUES (540, 130, 'sport', '');
+INSERT INTO `users_following` VALUES (541, 130, 'cute', '');
+INSERT INTO `users_following` VALUES (542, 130, 'science', '');
+INSERT INTO `users_following` VALUES (543, 130, 'gaming', '');
+INSERT INTO `users_following` VALUES (544, 130, 'books', '');
+INSERT INTO `users_following` VALUES (545, 130, 'art', '');
+INSERT INTO `users_following` VALUES (546, 130, 'fashion', '');
+INSERT INTO `users_following` VALUES (547, 130, 'apps', '');
+INSERT INTO `users_following` VALUES (548, 130, 'comic', '');
+INSERT INTO `users_following` VALUES (549, 130, 'travel', '');
+INSERT INTO `users_following` VALUES (550, 130, 'geeky', '');
+INSERT INTO `users_following` VALUES (551, 130, 'television', '');
+INSERT INTO `users_following` VALUES (552, 130, 'nature', '');
+INSERT INTO `users_following` VALUES (553, 130, 'music', '');
+INSERT INTO `users_following` VALUES (554, 131, 'funny', '');
+INSERT INTO `users_following` VALUES (555, 131, 'tech', '');
+INSERT INTO `users_following` VALUES (556, 131, 'buzz', '');
+INSERT INTO `users_following` VALUES (557, 131, 'finance', '');
+INSERT INTO `users_following` VALUES (558, 131, 'podcasts', '');
+INSERT INTO `users_following` VALUES (559, 130, 'podcasts', '');
+INSERT INTO `users_following` VALUES (560, 130, 'food', '');
+INSERT INTO `users_following` VALUES (561, 130, 'design', '');
+INSERT INTO `users_following` VALUES (562, 130, 'random', '');
+INSERT INTO `users_following` VALUES (563, 130, 'health', '');
+INSERT INTO `users_following` VALUES (564, 133, 'tech', '');
+INSERT INTO `users_following` VALUES (565, 133, 'finance', '');
+INSERT INTO `users_following` VALUES (566, 133, 'sport', '');
+INSERT INTO `users_following` VALUES (567, 133, 'cute', '');
+INSERT INTO `users_following` VALUES (568, 133, 'fashion', '');
+INSERT INTO `users_following` VALUES (569, 133, 'apps', '');
+INSERT INTO `users_following` VALUES (570, 133, 'travel', '');
+INSERT INTO `users_following` VALUES (571, 133, 'music', '');
+INSERT INTO `users_following` VALUES (572, 134, 'finance', '');
+INSERT INTO `users_following` VALUES (573, 134, 'books', '');
+INSERT INTO `users_following` VALUES (574, 134, 'art', '');
+INSERT INTO `users_following` VALUES (575, 134, 'fashion', '');
+INSERT INTO `users_following` VALUES (576, 134, 'food', '');
+INSERT INTO `users_following` VALUES (577, 134, 'design', '');
+INSERT INTO `users_following` VALUES (578, 134, 'television', '');
+INSERT INTO `users_following` VALUES (579, 135, 'art', '');
+INSERT INTO `users_following` VALUES (580, 136, 'buzz', '');
+INSERT INTO `users_following` VALUES (581, 136, 'sport', '');
+INSERT INTO `users_following` VALUES (582, 135, 'tech', '');
+INSERT INTO `users_following` VALUES (583, 135, 'finance', '');
+INSERT INTO `users_following` VALUES (584, 135, 'books', '');
+INSERT INTO `users_following` VALUES (585, 135, 'fashion', '');
+INSERT INTO `users_following` VALUES (586, 135, 'food', '');
+INSERT INTO `users_following` VALUES (587, 135, 'design', '');
+INSERT INTO `users_following` VALUES (588, 135, 'television', '');
+INSERT INTO `users_following` VALUES (589, 138, 'tech', '');
+INSERT INTO `users_following` VALUES (590, 138, 'finance', '');
+INSERT INTO `users_following` VALUES (591, 138, 'cute', '');
+INSERT INTO `users_following` VALUES (592, 138, 'gaming', '');
+INSERT INTO `users_following` VALUES (593, 138, 'art', '');
+INSERT INTO `users_following` VALUES (594, 139, 'funny', '');
+INSERT INTO `users_following` VALUES (595, 139, 'buzz', '');
+INSERT INTO `users_following` VALUES (596, 139, 'sport', '');
+INSERT INTO `users_following` VALUES (597, 139, 'food', '');
+INSERT INTO `users_following` VALUES (598, 140, 'funny', '');
+INSERT INTO `users_following` VALUES (599, 140, 'tech', '');
+INSERT INTO `users_following` VALUES (600, 140, 'buzz', '');
+INSERT INTO `users_following` VALUES (601, 140, 'finance', '');
+INSERT INTO `users_following` VALUES (602, 140, 'sport', '');
+INSERT INTO `users_following` VALUES (603, 140, 'cute', '');
+INSERT INTO `users_following` VALUES (604, 140, 'science', '');
+INSERT INTO `users_following` VALUES (605, 140, 'gaming', '');
+INSERT INTO `users_following` VALUES (606, 140, 'books', '');
+INSERT INTO `users_following` VALUES (607, 140, 'art', '');
+INSERT INTO `users_following` VALUES (608, 140, 'fashion', '');
+INSERT INTO `users_following` VALUES (609, 140, 'apps', '');
+INSERT INTO `users_following` VALUES (610, 140, 'food', '');
+INSERT INTO `users_following` VALUES (611, 140, 'comic', '');
+INSERT INTO `users_following` VALUES (612, 140, 'travel', '');
+INSERT INTO `users_following` VALUES (613, 140, 'geeky', '');
+INSERT INTO `users_following` VALUES (614, 140, 'music', '');
+INSERT INTO `users_following` VALUES (615, 140, 'design', '');
+INSERT INTO `users_following` VALUES (616, 140, 'random', '');
+INSERT INTO `users_following` VALUES (617, 140, 'television', '');
+INSERT INTO `users_following` VALUES (618, 140, 'health', '');
+INSERT INTO `users_following` VALUES (619, 140, 'nature', '');
+INSERT INTO `users_following` VALUES (620, 140, 'podcasts', '');
+INSERT INTO `users_following` VALUES (621, 141, 'sport', '');
+INSERT INTO `users_following` VALUES (622, 141, 'cute', '');
+INSERT INTO `users_following` VALUES (623, 141, 'nature', '');
+INSERT INTO `users_following` VALUES (624, 142, 'funny', '');
+INSERT INTO `users_following` VALUES (625, 142, 'tech', '');
+INSERT INTO `users_following` VALUES (626, 142, 'buzz', '');
+INSERT INTO `users_following` VALUES (627, 142, 'finance', '');
+INSERT INTO `users_following` VALUES (628, 142, 'sport', '');
+INSERT INTO `users_following` VALUES (629, 142, 'cute', '');
+INSERT INTO `users_following` VALUES (630, 142, 'gaming', '');
+INSERT INTO `users_following` VALUES (631, 143, 'funny', '');
+INSERT INTO `users_following` VALUES (632, 143, 'tech', '');
+INSERT INTO `users_following` VALUES (633, 143, 'buzz', '');
+INSERT INTO `users_following` VALUES (634, 143, 'finance', '');
+INSERT INTO `users_following` VALUES (635, 144, 'tech', '');
+INSERT INTO `users_following` VALUES (636, 145, 'funny', '');
+INSERT INTO `users_following` VALUES (637, 145, 'tech', '');
+INSERT INTO `users_following` VALUES (638, 145, 'buzz', '');
+INSERT INTO `users_following` VALUES (639, 145, 'finance', '');
+INSERT INTO `users_following` VALUES (640, 145, 'sport', '');
+INSERT INTO `users_following` VALUES (641, 145, 'cute', '');
+INSERT INTO `users_following` VALUES (642, 145, 'science', '');
+INSERT INTO `users_following` VALUES (643, 145, 'gaming', '');
+INSERT INTO `users_following` VALUES (644, 145, 'books', '');
+INSERT INTO `users_following` VALUES (645, 145, 'art', '');
+INSERT INTO `users_following` VALUES (646, 145, 'fashion', '');
+INSERT INTO `users_following` VALUES (647, 145, 'apps', '');
+INSERT INTO `users_following` VALUES (648, 145, 'food', '');
+INSERT INTO `users_following` VALUES (649, 145, 'comic', '');
+INSERT INTO `users_following` VALUES (650, 145, 'travel', '');
+INSERT INTO `users_following` VALUES (651, 145, 'geeky', '');
+INSERT INTO `users_following` VALUES (652, 145, 'music', '');
+INSERT INTO `users_following` VALUES (653, 145, 'design', '');
+INSERT INTO `users_following` VALUES (654, 145, 'random', '');
+INSERT INTO `users_following` VALUES (655, 145, 'television', '');
+INSERT INTO `users_following` VALUES (656, 145, 'health', '');
+INSERT INTO `users_following` VALUES (657, 145, 'nature', '');
+INSERT INTO `users_following` VALUES (658, 145, 'podcasts', '');
+INSERT INTO `users_following` VALUES (659, 146, 'tech', '');
+INSERT INTO `users_following` VALUES (660, 146, 'finance', '');
+INSERT INTO `users_following` VALUES (661, 146, 'sport', '');
+INSERT INTO `users_following` VALUES (662, 146, 'cute', '');
+INSERT INTO `users_following` VALUES (663, 146, 'gaming', '');
+INSERT INTO `users_following` VALUES (664, 146, 'art', '');
+INSERT INTO `users_following` VALUES (665, 146, 'apps', '');
+INSERT INTO `users_following` VALUES (666, 147, 'funny', '');
+INSERT INTO `users_following` VALUES (667, 147, 'tech', '');
+INSERT INTO `users_following` VALUES (668, 147, 'buzz', '');
+INSERT INTO `users_following` VALUES (669, 147, 'finance', '');
+INSERT INTO `users_following` VALUES (670, 147, 'sport', '');
+INSERT INTO `users_following` VALUES (671, 147, 'cute', '');
+INSERT INTO `users_following` VALUES (672, 147, 'fashion', '');
+INSERT INTO `users_following` VALUES (673, 147, 'apps', '');
+INSERT INTO `users_following` VALUES (674, 148, 'funny', '');
+INSERT INTO `users_following` VALUES (675, 148, 'tech', '');
+INSERT INTO `users_following` VALUES (676, 148, 'buzz', '');
+INSERT INTO `users_following` VALUES (677, 148, 'finance', '');
+INSERT INTO `users_following` VALUES (678, 148, 'cute', '');
+INSERT INTO `users_following` VALUES (679, 148, 'gaming', '');
+INSERT INTO `users_following` VALUES (680, 148, 'art', '');
+INSERT INTO `users_following` VALUES (681, 148, 'apps', '');
+INSERT INTO `users_following` VALUES (682, 149, 'funny', '');
+INSERT INTO `users_following` VALUES (683, 149, 'tech', '');
+INSERT INTO `users_following` VALUES (684, 149, 'buzz', '');
+INSERT INTO `users_following` VALUES (685, 149, 'finance', '');
+INSERT INTO `users_following` VALUES (686, 149, 'sport', '');
+INSERT INTO `users_following` VALUES (687, 149, 'cute', '');
+INSERT INTO `users_following` VALUES (688, 149, 'science', '');
+INSERT INTO `users_following` VALUES (689, 149, 'gaming', '');
+INSERT INTO `users_following` VALUES (690, 149, 'books', '');
+INSERT INTO `users_following` VALUES (691, 149, 'art', '');
+INSERT INTO `users_following` VALUES (692, 149, 'fashion', '');
+INSERT INTO `users_following` VALUES (693, 149, 'apps', '');
+INSERT INTO `users_following` VALUES (694, 149, 'food', '');
+INSERT INTO `users_following` VALUES (695, 149, 'comic', '');
+INSERT INTO `users_following` VALUES (696, 149, 'travel', '');
+INSERT INTO `users_following` VALUES (697, 149, 'geeky', '');
+INSERT INTO `users_following` VALUES (698, 149, 'music', '');
+INSERT INTO `users_following` VALUES (699, 149, 'design', '');
+INSERT INTO `users_following` VALUES (700, 149, 'random', '');
+INSERT INTO `users_following` VALUES (701, 149, 'television', '');
+INSERT INTO `users_following` VALUES (702, 149, 'health', '');
+INSERT INTO `users_following` VALUES (703, 149, 'nature', '');
+INSERT INTO `users_following` VALUES (704, 149, 'podcasts', '');
+INSERT INTO `users_following` VALUES (705, 150, 'funny', '');
+INSERT INTO `users_following` VALUES (706, 150, 'finance', '');
+INSERT INTO `users_following` VALUES (707, 150, 'science', '');
+INSERT INTO `users_following` VALUES (708, 150, 'gaming', '');
+INSERT INTO `users_following` VALUES (709, 150, 'art', '');
+INSERT INTO `users_following` VALUES (710, 150, 'comic', '');
+INSERT INTO `users_following` VALUES (711, 150, 'travel', '');
+INSERT INTO `users_following` VALUES (712, 150, 'design', '');
+INSERT INTO `users_following` VALUES (713, 150, 'health', '');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `users_notice`
+-- 
+
+CREATE TABLE `users_notice` (
+  `notice_id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) NOT NULL,
+  `notice_txt` varchar(120) NOT NULL,
+  `notice_time` varchar(30) NOT NULL,
+  PRIMARY KEY (`notice_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- 
+-- Dumping data for table `users_notice`
+-- 
+
+
+-- 
+-- Constraints for dumped tables
+-- 
+
+-- 
+-- Constraints for table `feedback`
+-- 
+ALTER TABLE `feedback`
+  ADD CONSTRAINT `feedback_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
+
+-- 
+-- Constraints for table `group_chat`
+-- 
+ALTER TABLE `group_chat`
+  ADD CONSTRAINT `group_chat_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
+
+-- 
+-- Constraints for table `user_cover_pic`
+-- 
+ALTER TABLE `user_cover_pic`
+  ADD CONSTRAINT `user_cover_pic_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
+
+-- 
+-- Constraints for table `user_info`
+-- 
+ALTER TABLE `user_info`
+  ADD CONSTRAINT `user_info_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
+
+-- 
+-- Constraints for table `user_post`
+-- 
+ALTER TABLE `user_post`
+  ADD CONSTRAINT `user_post_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
+
+-- 
+-- Constraints for table `user_post_comment`
+-- 
+ALTER TABLE `user_post_comment`
+  ADD CONSTRAINT `user_post_comment_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `user_post_comment_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `user_post` (`post_id`) ON DELETE CASCADE;
+
+-- 
+-- Constraints for table `user_post_status`
+-- 
+ALTER TABLE `user_post_status`
+  ADD CONSTRAINT `user_post_status_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `user_post_status_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user_post` (`user_id`) ON DELETE CASCADE;
+
+-- 
+-- Constraints for table `user_profile_pic`
+-- 
+ALTER TABLE `user_profile_pic`
+  ADD CONSTRAINT `user_profile_pic_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
+
+-- 
+-- Constraints for table `user_secret_quotes`
+-- 
+ALTER TABLE `user_secret_quotes`
+  ADD CONSTRAINT `user_secret_quotes_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
+
+-- 
+-- Constraints for table `user_status`
+-- 
+ALTER TABLE `user_status`
+  ADD CONSTRAINT `user_status_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `user_status_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
+
+-- 
+-- Constraints for table `user_warning`
+-- 
+ALTER TABLE `user_warning`
+  ADD CONSTRAINT `user_warning_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
+
+-- 
+-- Constraints for table `users_notice`
+-- 
+ALTER TABLE `users_notice`
+  ADD CONSTRAINT `users_notice_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
